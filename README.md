@@ -20,3 +20,5 @@ MySQL 8.0.X
 
 Madeleine Martin y Micaela Ramos
 
+https://docs.google.com/document/d/1FsL9DEvynjDA9ERPO-_Wpiz0V8FKp3-voklEbwWFwL8/edit?usp=sharing
+
