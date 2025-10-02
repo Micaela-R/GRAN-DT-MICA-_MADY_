@@ -8,23 +8,21 @@ CREATE PROCEDURE alta_usuario (
    IN p_Contrasena VARCHAR(255),
    IN p_Nombre VARCHAR(45),
    IN p_Apellido VARCHAR(45),
-   IN p_Nacimiento DATE
+   IN p_Nacimiento DATE,
+   OUT idUsuario INT
 )
 BEGIN
-   DECLARE v_Existe INT DEFAULT 0;
-   DECLARE v_Mensaje VARCHAR(255);
-
-       -- Insertar usuario con contraseña encriptada
-       INSERT INTO Usuario (
-           Email, Nombre, Apellido, Nacimiento, Contrasena,
-           Plantillas_idPlantilla, Plantillas_idUsuario, Tipo
-       ) VALUES (
-          p_Email, p_Nombre, p_Apellido, p_Nacimiento, p_Contrasena, 256,
-           0, '0', 'usuario'
-       );
-       SET v_Mensaje = 'Usuario registrado exitosamente.';
-       SELECT v_Mensaje AS Mensaje;
-   END IF;
+   
+   -- Insertar usuario con contraseña encriptada
+   INSERT INTO Usuario (
+      Email, Nombre, Apellido, Nacimiento, Contrasena,
+      Plantillas_idPlantilla, Plantillas_idUsuario, Tipo
+   ) VALUES (
+      p_Email, p_Nombre, p_Apellido, p_Nacimiento, p_Contrasena,
+      0, '0', 'Usuario'
+   );
+   
+   SET idUsuario = LAST_INSERT_ID();
 END $$
 
 -- Otro procedimiento para que en base del email y la contraseña si existe te da una fila o null

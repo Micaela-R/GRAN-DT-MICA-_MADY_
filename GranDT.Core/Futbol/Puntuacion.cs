@@ -1,4 +1,4 @@
-namespace GranDT.Core;
+namespace GranDT.Core.Futbol;
 
 public class Puntuacion
 {

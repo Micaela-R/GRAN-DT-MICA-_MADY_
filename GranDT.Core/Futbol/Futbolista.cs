@@ -1,4 +1,4 @@
-namespace GranDT.Core;
+namespace GranDT.Core.Futbol;
 
 public class Futbolista
 {
@@ -16,7 +16,4 @@ public class Futbolista
     public int TipoDeJugadorr_idTipoDeJugador { get; set; }
     public int TipoDeJugadorr_idFutbolista { get; set; }
     public int Equipo_idEquipo { get; set; }
-    public Date Puntuacion_Fecha { get; set; }
-    public int Puntuacion_idFutbolistas { get; set; }
-    public int Puntuacion_idPuntuacion { get; set; }
 }
