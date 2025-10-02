@@ -1,0 +1,16 @@
+namespace GranDT.Core;
+
+public class Puntuacion
+{
+
+    public int idPuntuacion { get; set; }
+
+    public int idFutbolista { get; set; }
+
+    public float Puntaje { get; set; }
+
+    public date Fecha { get; set; }
+
+    public varchar Cargador_por { get; set; }
+
+}
