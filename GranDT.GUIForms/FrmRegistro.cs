@@ -1,5 +1,6 @@
 ﻿using GranDT.Core;
 using GranDT.Core.Repos;
+using MySqlConnector;
 
 namespace GRAN_DT_MICA__MADY_;
 public partial class FrmRegistro : Form
@@ -13,6 +14,10 @@ public partial class FrmRegistro : Form
     public FrmRegistro()
     {
         InitializeComponent();
+
+        var cadena = "Server=localhost;User ID=5to_agbd;Password=Trigg3rs!;Database=5to_rosita_fresita;";
+        var conector = new MySqlConnection(cadena);
+
     }
 
     private void btnAceptar_Click(object sender, EventArgs e)
@@ -30,6 +35,6 @@ public partial class FrmRegistro : Form
             IdUsuario = 0,
             Nacimiento = dtpFecha_de_Nacimiento.Value
         };
-        repo.AltaUsuario(usuario);
+        repo.AltaUsuario(usuario, pass);
     }
 }
