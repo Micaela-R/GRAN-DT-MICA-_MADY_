@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace GRAN_DT_MICA__MADY_
 {
-    public partial class FrmMenu : Form
+    public partial class Form2 : Form
     {
-        public FrmMenu()
+        public Form2()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,7 +22,12 @@ namespace GRAN_DT_MICA__MADY_
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

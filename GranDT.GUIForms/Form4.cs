@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace GRAN_DT_MICA__MADY_
 {
-    public partial class FrmMenu : Form
+    public partial class Form4 : Form
     {
-        public FrmMenu()
+        public Form4()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
