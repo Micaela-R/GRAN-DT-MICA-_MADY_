@@ -16,5 +16,19 @@ namespace GRAN_DT_MICA__MADY_
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var registro = new FrmRegistro();
+            registro.Show();
+            this.Hide();
+        }
+
+        private void btnInisiarSesion_Click(object sender, EventArgs e)
+        {
+            var login = new FrmIniciarSesion();
+            login.Show();
+            this.Hide();
+        }
     }
 }

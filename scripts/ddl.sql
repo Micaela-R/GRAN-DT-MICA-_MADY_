@@ -72,11 +72,6 @@ CREATE TABLE IF NOT EXISTS `Futbolistas` (
    FOREIGN KEY (`Equipo_idEquipo`)
    REFERENCES `Equipo` (`idEquipo`)
    ON DELETE NO ACTION
-   ON UPDATE NO ACTION,
- CONSTRAINT `fk_Futbolistas_Puntuacion1`
-   FOREIGN KEY (`Puntuacion_Fecha` , `Puntuacion_idFutbolistas` , `Puntuacion_idPuntuacion`)
-   REFERENCES `Puntuacion` (`Fecha` , `idFutbolistas` , `idPuntuacion`)
-   ON DELETE NO ACTION
    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 -- -----------------------------------------------------
@@ -92,22 +87,14 @@ ENGINE = InnoDB;
 -- Table `Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Usuario` (
- `idUsuario` INT NOT NULL,
+ `idUsuario` INT NOT NULL AUTO_INCREMENT,
  `Email` VARCHAR(45) NOT NULL,
  `Nombre` VARCHAR(45) NULL,
  `Apellido` VARCHAR(45) NULL,
  `Nacimiento` DATE NULL,
  `Contrasena` CHAR(64) NULL,
- `Plantillas_idPlantilla` INT NOT NULL,
- `Plantillas_idUsuario` VARCHAR(45) NOT NULL,
  `Tipo` VARCHAR(45) NULL,
- PRIMARY KEY (`idUsuario`, `Email`, `Plantillas_idPlantilla`, `Plantillas_idUsuario`),
- INDEX `fk_Usuario_Plantillas1_idx` (`Plantillas_idPlantilla` ASC, `Plantillas_idUsuario` ASC) VISIBLE,
- CONSTRAINT `fk_Usuario_Plantillas1`
-   FOREIGN KEY (`Plantillas_idPlantilla` , `Plantillas_idUsuario`)
-   REFERENCES `Plantillas` (`idPlantilla` , `idUsuario`)
-   ON DELETE NO ACTION
-   ON UPDATE NO ACTION)
+ PRIMARY KEY (`idUsuario`))
 ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `FutbolistaPlantilla`

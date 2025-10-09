@@ -15,16 +15,17 @@ public class RepoUsuario : Repo, IRepoUsuario
     {
         var parametros = new DynamicParameters();
 
-        parametros.Add("@unIdUsuario", direction: ParameterDirection.Output);
-        parametros.Add("@unEmail", usuario.Email);
-        parametros.Add("@unNombre", usuario.Nombre);
-        parametros.Add("@unApellido", usuario.Apellido);
-        parametros.Add("@unNacimiento", usuario.Nacimiento);
+        parametros.Add("@idUsuario", direction: ParameterDirection.Output);
+        parametros.Add("@p_Email", usuario.Email);
+        parametros.Add("@p_Nombre", usuario.Nombre);
+        parametros.Add("@p_Apellido", usuario.Apellido);
+        parametros.Add("@p_Nacimiento", usuario.Nacimiento);
+        parametros.Add("@p_Contrasena", pass);
 
         try
         {
-            Conexion.Execute("AltaUsuario", parametros);
-            usuario.IdUsuario = parametros.Get<int>("unIdUsuario");
+            Conexion.Execute("alta_usuario", parametros);
+            usuario.IdUsuario = parametros.Get<int>("idUsuario");
         }
         catch (System.Exception)
         {

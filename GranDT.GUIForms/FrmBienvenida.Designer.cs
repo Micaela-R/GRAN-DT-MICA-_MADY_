@@ -32,6 +32,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            btnContinuar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -52,7 +53,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(290, 157);
+            label2.Location = new Point(296, 123);
             label2.Name = "label2";
             label2.Size = new Size(115, 86);
             label2.TabIndex = 1;
@@ -64,11 +65,26 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(133, 299);
+            label3.Location = new Point(126, 222);
             label3.Name = "label3";
             label3.Size = new Size(435, 86);
             label3.TabIndex = 2;
             label3.Text = "GRAN DT 12!";
+            // 
+            // btnContinuar
+            // 
+            btnContinuar.BackColor = Color.Transparent;
+            btnContinuar.BackgroundImageLayout = ImageLayout.None;
+            btnContinuar.FlatStyle = FlatStyle.Popup;
+            btnContinuar.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnContinuar.ForeColor = Color.DarkSlateGray;
+            btnContinuar.Location = new Point(226, 329);
+            btnContinuar.Name = "btnContinuar";
+            btnContinuar.Size = new Size(243, 87);
+            btnContinuar.TabIndex = 3;
+            btnContinuar.Text = "Continuar";
+            btnContinuar.UseVisualStyleBackColor = false;
+            btnContinuar.Click += btnContinuar_Click;
             // 
             // FrmBienvenida
             // 
@@ -77,6 +93,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(747, 428);
+            Controls.Add(btnContinuar);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -91,5 +108,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button btnContinuar;
     }
 }

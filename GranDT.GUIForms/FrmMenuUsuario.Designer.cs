@@ -33,8 +33,8 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnInisiarSesion = new Button();
+            btnRegistrarse = new Button();
             SuspendLayout();
             // 
             // label1
@@ -81,25 +81,27 @@
             label4.Size = new Size(0, 15);
             label4.TabIndex = 3;
             // 
-            // button1
+            // btnInisiarSesion
             // 
-            button1.BackColor = Color.SteelBlue;
-            button1.Location = new Point(358, 176);
-            button1.Name = "button1";
-            button1.Size = new Size(139, 53);
-            button1.TabIndex = 4;
-            button1.Text = "INICIAR SESION";
-            button1.UseVisualStyleBackColor = false;
+            btnInisiarSesion.BackColor = Color.SteelBlue;
+            btnInisiarSesion.Location = new Point(358, 176);
+            btnInisiarSesion.Name = "btnInisiarSesion";
+            btnInisiarSesion.Size = new Size(139, 53);
+            btnInisiarSesion.TabIndex = 4;
+            btnInisiarSesion.Text = "INICIAR SESION";
+            btnInisiarSesion.UseVisualStyleBackColor = false;
+            btnInisiarSesion.Click += btnInisiarSesion_Click;
             // 
-            // button2
+            // btnRegistrarse
             // 
-            button2.BackColor = Color.SteelBlue;
-            button2.Location = new Point(358, 298);
-            button2.Name = "button2";
-            button2.Size = new Size(139, 53);
-            button2.TabIndex = 5;
-            button2.Text = "REGISTRARSE";
-            button2.UseVisualStyleBackColor = false;
+            btnRegistrarse.BackColor = Color.SteelBlue;
+            btnRegistrarse.Location = new Point(358, 298);
+            btnRegistrarse.Name = "btnRegistrarse";
+            btnRegistrarse.Size = new Size(139, 53);
+            btnRegistrarse.TabIndex = 5;
+            btnRegistrarse.Text = "REGISTRARSE";
+            btnRegistrarse.UseVisualStyleBackColor = false;
+            btnRegistrarse.Click += button2_Click;
             // 
             // FrmMenuUsuario
             // 
@@ -108,8 +110,8 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(909, 543);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnRegistrarse);
+            Controls.Add(btnInisiarSesion);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -126,7 +128,7 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Button button1;
-        private Button button2;
+        private Button btnInisiarSesion;
+        private Button btnRegistrarse;
     }
 }

@@ -6,5 +6,12 @@ namespace GRAN_DT_MICA__MADY_
         {
             InitializeComponent();
         }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            var bienvenido = new FrmBienvenida();
+            bienvenido.Show();
+            this.Hide();
+        }
     }
 }

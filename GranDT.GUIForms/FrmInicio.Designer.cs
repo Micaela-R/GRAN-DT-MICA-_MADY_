@@ -29,7 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInicio));
+            btnSiguiente = new Button();
             SuspendLayout();
+            // 
+            // btnSiguiente
+            // 
+            btnSiguiente.BackColor = Color.Transparent;
+            btnSiguiente.FlatStyle = FlatStyle.Popup;
+            btnSiguiente.Font = new Font("Franklin Gothic Medium", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSiguiente.ForeColor = SystemColors.ButtonFace;
+            btnSiguiente.Location = new Point(749, 463);
+            btnSiguiente.Name = "btnSiguiente";
+            btnSiguiente.Size = new Size(98, 65);
+            btnSiguiente.TabIndex = 0;
+            btnSiguiente.Text = "->";
+            btnSiguiente.UseVisualStyleBackColor = false;
+            btnSiguiente.Click += btnSiguiente_Click;
             // 
             // FrmInicio
             // 
@@ -38,11 +53,14 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(985, 563);
+            Controls.Add(btnSiguiente);
             Name = "FrmInicio";
             Text = "Inicio";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnSiguiente;
     }
 }

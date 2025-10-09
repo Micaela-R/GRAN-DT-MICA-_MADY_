@@ -16,5 +16,14 @@ namespace GRAN_DT_MICA__MADY_
         {
             InitializeComponent();
         }
+
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            var menu = new FrmMenuUsuario();
+
+            // Mostrar el menú y ocultar el actual
+            menu.Show();
+            this.Hide();
+        }
     }
 }
