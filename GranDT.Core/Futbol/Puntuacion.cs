@@ -9,8 +9,8 @@ public class Puntuacion
 
     public float Puntaje { get; set; }
 
-    public date Fecha { get; set; }
+    public DateTime Fecha { get; set; }
 
-    public varchar Cargador_por { get; set; }
+    public string Cargador_por { get; set; }
 
 }

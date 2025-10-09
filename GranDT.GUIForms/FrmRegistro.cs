@@ -15,7 +15,7 @@ public partial class FrmRegistro : Form
     {
         InitializeComponent();
 
-        var cadena = "Server=localhost;User ID=5to_agbd;Password=Trigg3rs!;Database=5to_rosita_fresita;";
+        var cadena = "Server=localhost;User ID=root;Password=root;Database=5to_rosita_fresita;";
         var conector = new MySqlConnection(cadena);
 
     }

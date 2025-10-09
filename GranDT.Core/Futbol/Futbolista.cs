@@ -10,7 +10,6 @@ public class Futbolista
     public DateTime Nacimiento { get; set; }
     public int idEquipo { get; set; }
     public int idTipoDeJugador { get; set; }
-    public int idTipoDeJugador { get; set; }
     public decimal Cotizacion { get; set; }
     public string Creado_por { get; set; }
     public int TipoDeJugadorr_idTipoDeJugador { get; set; }
