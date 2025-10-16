@@ -37,11 +37,11 @@ public class RepoUsuario : Repo, IRepoUsuario
     {
         var sql = @"
                         SELECT  idUsuario, Email, Nombre, Apellido, Nacimiento
-                        FROM Usuarios
+                        FROM Usuario
                         WHERE email = @unEmail
-                        AND pass = SHA2(@unaPass, 256)";
+                        AND Contrasena = SHA2(@unaPass, 256)";
 
-        var usuario = Conexion.QueryFirstOrDefault<Usuario>(sql, new { Email = email, Pass = pass });
+        var usuario = Conexion.QueryFirstOrDefault<Usuario>(sql, new { unEmail = email, unaPass = pass });
 
         return usuario;
     }

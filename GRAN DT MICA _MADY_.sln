@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranDT.ReposDapper", "GranD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GRAN DT MICA _MADY_", "GranDT.GUIForms\GRAN DT MICA _MADY_.csproj", "{A8CD4865-69B5-47CB-E913-364066912DDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrandDT.TestRepos", "GrandDT.TestRepos\GrandDT.TestRepos.csproj", "{D639A085-629F-4932-960F-FD3386A756BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A8CD4865-69B5-47CB-E913-364066912DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8CD4865-69B5-47CB-E913-364066912DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8CD4865-69B5-47CB-E913-364066912DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D639A085-629F-4932-960F-FD3386A756BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D639A085-629F-4932-960F-FD3386A756BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D639A085-629F-4932-960F-FD3386A756BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D639A085-629F-4932-960F-FD3386A756BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
