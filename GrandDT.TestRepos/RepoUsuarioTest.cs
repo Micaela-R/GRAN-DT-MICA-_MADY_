@@ -42,10 +42,8 @@ public class RepoUsuarioTest : RepoTest
     [Fact]
     public void TraerUsuarioNull()
     {
-
         var Email = "123456@gmail.com";
         var Pass = "clave_incorrecta";
-
 
         var usuario = repo.UsuarioPorPass(Email, Pass);
 
