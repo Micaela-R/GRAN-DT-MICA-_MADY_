@@ -1,5 +1,7 @@
 USE `5to_rosita_fresita`;
 
+SELECT 'Agregando Usuarios' AS Estado;
+
 INSERT INTO
     `Usuario` (
         `idUsuario`,
@@ -29,6 +31,9 @@ VALUES (
         'User'
     );
 
+
+SELECT 'Agregando Equipo' AS Estado;
+
 INSERT INTO
     `Equipo` (
         `idEquipo`,
@@ -37,6 +42,8 @@ INSERT INTO
     )
 VALUES (1, 11, 'Equipo A'),
     (2, 11, 'Equipo B');
+
+    SELECT 'Agregando TipoDeJugador' AS Estado;
 
 INSERT INTO
     `TipoDeJugador` (
@@ -47,6 +54,8 @@ INSERT INTO
 VALUES (1, 'Delantero', 'F001'),
     (2, 'Defensor', 'F002'),
     (3, 'Centrocampista', 'F003');
+
+SELECT 'Agregando Futbolistas' AS Estado;
 
 INSERT INTO
     `Futbolistas` (
@@ -98,10 +107,28 @@ VALUES (
         2
     );
 
+SELECT 'Agregando Plantilla' AS Estado;   
+
+INSERT INTO
+  `Plantilla`(
+  `idPlantilla`,
+  `Nombre`,
+  `idUsuario`
+)
+VALUES (
+1,
+'cancha A'
+1, 
+);
+
+SELECT 'Agregando FutbolistaPlantilla' AS Estado;   
+
 INSERT INTO
     `FutbolistaPlantilla` (`idFutbolista`, `idPlantilla`)
 VALUES (1, 1),
     (2, 2);
+
+SELECT 'Agregando Puntuacion' AS Estado;  
 
 INSERT INTO
     `Puntuacion` (
@@ -126,7 +153,3 @@ VALUES (
         'Administrador'
     );
 
-INSERT INTO
-    `FutbolistaPlantilla` (`idFutbolista`, `idPlantilla`)
-VALUES (1, 1),
-    (2, 2);
