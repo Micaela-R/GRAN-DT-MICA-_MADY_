@@ -4,7 +4,7 @@ DELIMITER $$
 
 DROP TRIGGER IF EXISTS encriptar_contrasena_before_insert $$
 
-CREATE TRIGGER encriptar_contrasena_before_insert
+CREATE TRIGGER encriptar_contrasena_before_insert 
 BEFORE INSERT ON Usuario
 FOR EACH ROW
 BEGIN
