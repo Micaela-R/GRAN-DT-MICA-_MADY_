@@ -3,6 +3,7 @@ USE `5to_rosita_fresita`;
 
 DELIMITER $$
 
+DROP PROCEDURE IF EXISTS alta_usuario $$
 CREATE PROCEDURE alta_usuario (
    IN p_Email VARCHAR(45),
    IN p_Contrasena VARCHAR(255),
@@ -25,6 +26,7 @@ END $$
 -- Otro procedimiento para que en base del email y la contrasena si existe te da una fila o null
 DELIMITER $$
 
+DROP PROCEDURE IF EXISTS validar_usuario $$
 CREATE PROCEDURE validar_usuario (
    IN p_Email VARCHAR(45),
    IN p_Contrasena VARCHAR(255)
@@ -33,6 +35,6 @@ BEGIN
    -- Seleccionamos el usuario si existe y la contrasena coincide
    SELECT idUsuariogit
    WHERE Email = p_Email
-     AND Contrasena = SHA2(p_Contrasena, 256)
+   AND Contrasena = SHA2(p_Contrasena, 256)
    LIMIT 1;
 END $$
