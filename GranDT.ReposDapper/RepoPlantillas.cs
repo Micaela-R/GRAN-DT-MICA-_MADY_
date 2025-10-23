@@ -5,7 +5,7 @@ using GranDT.Core.Repos;
 
 namespace GranDT.ReposDapper
 {
-public class RepoPlantillas : Repo, IRepoPlantillas
+public class RepoPlantillas : Repo, IRepoPlantilla
     {
         public RepoPlantillas(IDbConnection conexion) : base(conexion)
         {
@@ -35,7 +35,7 @@ public class RepoPlantillas : Repo, IRepoPlantillas
             var plantillasConFutbolistas = new Dictionary<int, FutbolistaPlantilla();
 
             // Ejecutar la consulta y construir los objetos
-            var resultados = Conexion.Query<FutbolistaPlantilla, FutbolistaConPosicion, FutbolistaPlantilla>(
+            var resultados = Conexion.Query<FutbolistaPlantilla, posicion, FutbolistaPlantilla>(
                 sql,
                 (plantilla, futbolistaConPosicion) =>
                 {

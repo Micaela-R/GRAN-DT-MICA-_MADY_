@@ -5,9 +5,6 @@ public class TipoDeJugador
 
     public int idTipoDeJugador { get; set; }
 
-    public string Tipo { get; set; }
-
-    public int idFutbolista { get; set; }
+    public required string Tipo { get; set; }
 
 }
-
