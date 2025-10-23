@@ -107,26 +107,32 @@ VALUES (
         2
     );
 
-SELECT 'Agregando Plantilla' AS Estado;   
+SELECT 'Agregando Plantillas' AS Estado;   
 
 INSERT INTO
-  `Plantilla`(
-  `idPlantilla`,
-  `Nombre`,
-  `idUsuario`
+`Plantillas`(
+    `idPlantilla`,
+    `Nombre`,
+    `idUsuario`
 )
 VALUES (
-1,
-'cancha A'
-1, 
-);
+        1,
+        'Cancha A',
+        1
+    ),
+    (
+        2,
+        'Cancha B',
+        2
+    );
+
 
 SELECT 'Agregando FutbolistaPlantilla' AS Estado;   
 
 INSERT INTO
     `FutbolistaPlantilla` (`idFutbolista`, `idPlantilla`)
 VALUES (1, 1),
-    (2, 2);
+        (2, 2);
 
 SELECT 'Agregando Puntuacion' AS Estado;  
 
