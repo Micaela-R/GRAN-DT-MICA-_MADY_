@@ -1,2 +1,1 @@
-    public int idUsuario { get; set; }
-}
+namespace GranDT.Core
