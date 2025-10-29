@@ -12,7 +12,7 @@ public class Futbolista
     public int idTipoDeJugador { get; set; }
     public decimal Cotizacion { get; set; }
     public string Creado_por { get; set; }
-    public int TipoDeJugadorr_idTipoDeJugador { get; set; }
-    public int TipoDeJugadorr_idFutbolista { get; set; }
+    public int TipoDeJugador_idTipoDeJugador { get; set; }
+    public int TipoDeJugador_idFutbolista { get; set; }
     public int Equipo_idEquipo { get; set; }
 }
