@@ -13,13 +13,12 @@ public class RepoUsuarioTest : RepoTest
     [Fact]
     public void AltaUsuario()
     {
-        var david = new Usuario()
-        {
-            Nombre = "David",
-            Apellido = "Ascensor",
-            Email = "123456@gmail.com",
-            Nacimiento = new DateTime(2007, 01, 15)
-        };
+        var david = new Usuario(
+            nombre: "David",
+            apellido: "Ascensor",
+            email: "123456@gmail.com",
+            nacimiento: new DateTime(2007, 01, 15)
+        );
 
         Assert.Equal(0, david.IdUsuario);
         repo.AltaUsuario(david, "123456");

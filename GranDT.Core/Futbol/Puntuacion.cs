@@ -11,6 +11,5 @@ public class Puntuacion
 
     public DateTime Fecha { get; set; }
 
-    public string Cargador_por { get; set; }
-
+    public string Cargador_por { get; set; } = string.Empty;
 }
