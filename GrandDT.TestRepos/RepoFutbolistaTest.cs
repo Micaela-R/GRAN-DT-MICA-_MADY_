@@ -61,7 +61,7 @@ public class RepoFutbolistaTest : RepoTest
 
         var primero = tipos.First();
 
-        Assert.NotEqual(0, primero.idTipoDeJugador);
+        Assert.NotEqual(0, primero.IdTipoDeJugador);
         Assert.False(string.IsNullOrEmpty(primero.Tipo), "El campo Tipo no debe estar vacío.");
     }
 }
