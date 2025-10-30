@@ -1,9 +1,18 @@
+namespace GranDT.Core.Futbol;
+    public class FutbolistaPlantilla
+    {
+        // Clave compuesta 
+        public int IdFutbolista { get; set; }
+        public int IdPlantilla { get; set; }
 
-namespace GranDT.Core;
+        // Constructor vacio
+        public FutbolistaPlantilla() { }
 
-public class FutbolistaPlantilla
-{
-    public int idFutbolista { get; set; }
+        // constructor para iniciar rapido y facil
+        public FutbolistaPlantilla(int idFutbolista, int idPlantilla)
+        {
+            IdFutbolista = idFutbolista;
+            IdPlantilla = idPlantilla;
+        }
+    }
 
-    public int idPlantilla { get; set; }
-}
