@@ -49,7 +49,7 @@ INSERT INTO
     `TipoDeJugador` (
         `idTipoDeJugador`,
         `Tipo`,
-        `idFutbolistas`
+        `idFutbolista`
     )
 VALUES (1, 'Delantero', 'F001'),
     (2, 'Defensor', 'F002'),
@@ -59,7 +59,7 @@ SELECT 'Agregando Futbolistas' AS Estado;
 
 INSERT INTO
     `Futbolistas` (
-        `idFutbolistas`,
+        `idFutbolista`,
         `Nombre`,
         `Apodo`,
         `Nacimiento`,
@@ -68,10 +68,10 @@ INSERT INTO
         `Cotizacion`,
         `Creado_por`,
         `TipoDeJugador_idTipoDeJugador`,
-        `TipoDeJugador_idFutbolistas`,
+        `TipoDeJugador_idFutbolista`,
         `Equipo_idEquipo`,
         `Puntuacion_Fecha`,
-        `Puntuacion_idFutbolistas`,
+        `Puntuacion_idFutbolista`,
         `Puntuacion_idPuntuacion`
     )
 VALUES (
@@ -126,20 +126,12 @@ VALUES (
         2
     );
 
-
-SELECT 'Agregando FutbolistaPlantilla' AS Estado;   
-
-INSERT INTO
-    `FutbolistaPlantilla` (`idFutbolista`, `idPlantilla`)
-VALUES (1, 1),
-        (2, 2);
-
 SELECT 'Agregando Puntuacion' AS Estado;  
 
 INSERT INTO
     `Puntuacion` (
         `idPuntuacion`,
-        `idFutbolistas`,
+        `idFutbolista`,
         `Puntaje`,
         `Fecha`,
         `Cargado_Por`
