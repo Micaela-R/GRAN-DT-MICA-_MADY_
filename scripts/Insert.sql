@@ -48,12 +48,12 @@ VALUES (1, 11, 'Equipo A'),
 INSERT INTO
     `TipoDeJugador` (
         `idTipoDeJugador`,
-        `Tipo`,
-        `idFutbolista`
+        `Tipo`
     )
-VALUES (1, 'Delantero', 'F001'),
-    (2, 'Defensor', 'F002'),
-    (3, 'Centrocampista', 'F003');
+VALUES (1, 'Delantero'),
+    (2, 'Defensor'),
+    (3, 'Centrocampista'),
+    (4, 'Arquero');
 
 SELECT 'Agregando Futbolistas' AS Estado;
 
@@ -66,13 +66,7 @@ INSERT INTO
         `idEquipo`,
         `idTipoDeJugador`,
         `Cotizacion`,
-        `Creado_por`,
-        `TipoDeJugador_idTipoDeJugador`,
-        `TipoDeJugador_idFutbolista`,
-        `Equipo_idEquipo`,
-        `Puntuacion_Fecha`,
-        `Puntuacion_idFutbolista`,
-        `Puntuacion_idPuntuacion`
+        `Creado_por`
     )
 VALUES (
         1,
@@ -82,13 +76,7 @@ VALUES (
         1,
         1,
         50000.00,
-        'Admin',
-        1,
-        'F001',
-        1,
-        '2025-09-23',
-        1,
-        1
+        'Admin'
     ),
     (
         2,
@@ -98,13 +86,7 @@ VALUES (
         2,
         2,
         40000.00,
-        'Admin',
-        2,
-        'F002',
-        2,
-        '2025-09-23',
-        2,
-        2
+        'Admin'
     );
 
 SELECT 'Agregando Plantillas' AS Estado;   
@@ -130,7 +112,6 @@ SELECT 'Agregando Puntuacion' AS Estado;
 
 INSERT INTO
     `Puntuacion` (
-        `idPuntuacion`,
         `idFutbolista`,
         `Puntaje`,
         `Fecha`,
@@ -138,16 +119,34 @@ INSERT INTO
     )
 VALUES (
         1,
-        1,
         8.5,
-        '2025-09-23',
+        1,
         'Administrador'
     ),
     (
         2,
-        2,
         7.3,
-        '2025-09-23',
+        2,
         'Administrador'
     );
+
+    SELECT 'Agregando Titular' AS Estado; 
+
+    INSERT INTO `Suplente` (
+    `idFutbolista`,
+    `idPlantilla`
+)
+VALUES
+    (1, 1),
+    (2, 2);
+
+SELECT 'Agregando Titulares' AS Estado;
+
+INSERT INTO `Titular` (
+    `idFutbolista`,
+    `idPlantilla`
+)
+VALUES
+    (1, 2),
+    (2, 1);
 
