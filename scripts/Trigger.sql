@@ -34,5 +34,25 @@ BEGIN
     END IF;
 END $$
 
+-- Trigger antes de insertar o elegir a los Seplentes
 
+DELIMITER $$
+
+DROP TRIGGER IF EXISTS befInsSuplente $$
+
+CREATE TRIGGER befSuplente BEFORE INSERT ON Suplente FOR EACH ROW
+BEGIN
+    DECLARE mensaje VARCHAR(128);
+
+    IF (EXISTS(SELECT *
+              FROM Titular
+              WHERE idFutbolista = NEW.idFutbolista
+              AND idPlantilla = NEW.idPlantilla
+    )) THEN
+        SET mensaje = CONCAT('Error: El futbolista con id ', NEW.idFutbolista,
+                            ' ya figura como TITULAR en la plantilla ', NEW.idPlantilla, '.');
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = mensaje;
+    END IF;
+END $$
 
