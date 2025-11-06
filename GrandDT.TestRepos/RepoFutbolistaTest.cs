@@ -22,7 +22,7 @@ public class RepoFutbolistaTest : RepoTest
             Apodo = "Messi",
             Nacimiento = new DateTime(1987, 6, 24),
             idFutbolistas = 1,
-            idEquipo = 1,
+            Equipo = 1,
             idTipoDeJugador = 1,
             Cotizacion = 100000000,
             Creado_por = "Test"
@@ -50,13 +50,13 @@ public class RepoFutbolistaTest : RepoTest
     }
 
     [Fact]
-    
+
     public void ObtenerTipoJugadores_OK()
     {
         var tipos = repo.ObtenerTipoJugadores();
 
         Assert.NotNull(tipos);  // La consulta no debe devolver null
-        Assert.True(tipos.Any(), 
+        Assert.True(tipos.Any(),
             "La lista de tipos de jugadores está vacía. Asegúrate de que existan registros en la tabla TipoDeJugador.");
 
         var primero = tipos.First();
