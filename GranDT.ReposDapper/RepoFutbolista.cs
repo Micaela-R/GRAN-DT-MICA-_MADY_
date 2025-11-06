@@ -78,13 +78,13 @@ public class RepoFutbolista : Repo, IRepoFutbolista
             if (futbolista is not null)
             {
                 var puntuaciones = multi.Read<Puntuacion>();
-                var tipoDeJugador = multi.Read<TipoDeJugador>();
-                var equipo = multi.Read<Equipo>();
+                var tipoDeJugador = multi.ReadSingle<TipoDeJugador>();
+                var equipo = multi.ReadSingle<Equipo>();
 
-                return futbolista.Value.Futbolista(Equipo equipo, TipoDeJugador tipo, IEnumerable<Puntuacion> puntuaciones);
+                return futbolista.Value.Futbolista(equipo, tipoDeJugador, puntuaciones);
             }
-            return null;
         }
+        return null;
     }
 
     record struct DtoDetalleFutbolista(int idFutbolista, string nombre, string? apodo,
@@ -96,5 +96,5 @@ public class RepoFutbolista : Repo, IRepoFutbolista
                     cotizacion, creado_por, idFutbolista);
     }
 
-    
+
 }
