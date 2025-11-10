@@ -83,7 +83,7 @@
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(206, 124);
+            pictureBox4.Location = new Point(143, 115);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(86, 41);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -96,7 +96,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(317, 133);
+            label1.Location = new Point(283, 133);
             label1.Name = "label1";
             label1.Size = new Size(150, 23);
             label1.TabIndex = 11;
@@ -120,7 +120,7 @@
             lblContraseña.BackColor = Color.Transparent;
             lblContraseña.Font = new Font("Segoe UI Historic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblContraseña.ForeColor = Color.White;
-            lblContraseña.Location = new Point(206, 268);
+            lblContraseña.Location = new Point(175, 268);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(117, 25);
             lblContraseña.TabIndex = 13;
@@ -135,9 +135,9 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(329, 273);
+            textBox2.Location = new Point(298, 273);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(151, 23);
+            textBox2.Size = new Size(164, 23);
             textBox2.TabIndex = 15;
             // 
             // button1
@@ -146,7 +146,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Sitka Small", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(298, 352);
+            button1.Location = new Point(283, 348);
             button1.Name = "button1";
             button1.Size = new Size(129, 34);
             button1.TabIndex = 16;

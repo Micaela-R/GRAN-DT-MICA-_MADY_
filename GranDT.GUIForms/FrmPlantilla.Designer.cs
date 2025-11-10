@@ -29,19 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlantilla));
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button11 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
@@ -50,10 +39,20 @@
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
             pictureBox11 = new PictureBox();
-            button10 = new Button();
+            pictureBox3 = new PictureBox();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            comboBox5 = new ComboBox();
+            comboBox6 = new ComboBox();
+            comboBox7 = new ComboBox();
+            comboBox8 = new ComboBox();
+            comboBox9 = new ComboBox();
+            comboBox10 = new ComboBox();
+            comboBox11 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -62,100 +61,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(597, 209);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Arquero";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(481, 85);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 1;
-            button2.Text = "Lateral D";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(481, 393);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 2;
-            button3.Text = "Lateral I";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(513, 180);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 3;
-            button4.Text = "Defensores";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(513, 295);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 4;
-            button5.Text = "Defensores";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(385, 229);
-            button6.Name = "button6";
-            button6.Size = new Size(88, 23);
-            button6.TabIndex = 5;
-            button6.Text = "Medio Centro ";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // button7
-            // 
-            button7.Location = new Point(314, 114);
-            button7.Name = "button7";
-            button7.Size = new Size(88, 23);
-            button7.TabIndex = 6;
-            button7.Text = "Medio Centro";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Location = new Point(314, 332);
-            button8.Name = "button8";
-            button8.Size = new Size(88, 23);
-            button8.TabIndex = 7;
-            button8.Text = "Medio Centro";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
-            // 
-            // button9
-            // 
-            button9.Location = new Point(99, 393);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 8;
-            button9.Text = "Extremo I";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            button11.Location = new Point(99, 85);
-            button11.Name = "button11";
-            button11.Size = new Size(75, 23);
-            button11.TabIndex = 10;
-            button11.Text = "Extremo D";
-            button11.UseVisualStyleBackColor = true;
-            button11.Click += button11_Click;
             // 
             // pictureBox1
             // 
@@ -178,17 +85,6 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(87, 29);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(100, 50);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 13;
-            pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
@@ -239,7 +135,7 @@
             // 
             pictureBox8.BackColor = Color.Transparent;
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(582, 153);
+            pictureBox8.Location = new Point(598, 164);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(100, 50);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
@@ -250,7 +146,7 @@
             // 
             pictureBox9.BackColor = Color.Transparent;
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(500, 239);
+            pictureBox9.Location = new Point(500, 229);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(100, 50);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
@@ -273,21 +169,127 @@
             // 
             pictureBox11.BackColor = Color.Transparent;
             pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(99, 182);
+            pictureBox11.Location = new Point(99, 180);
             pictureBox11.Name = "pictureBox11";
             pictureBox11.Size = new Size(100, 50);
             pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox11.TabIndex = 21;
             pictureBox11.TabStop = false;
             // 
-            // button10
+            // pictureBox3
             // 
-            button10.Location = new Point(99, 239);
-            button10.Name = "button10";
-            button10.Size = new Size(112, 23);
-            button10.TabIndex = 22;
-            button10.Text = "Delantero Central";
-            button10.UseVisualStyleBackColor = true;
+            pictureBox3.BackColor = Color.Transparent;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(87, 40);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(100, 50);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 23;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FlatStyle = FlatStyle.Popup;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(606, 220);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(92, 23);
+            comboBox1.TabIndex = 24;
+            comboBox1.Text = "  ARQUERO       ";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(508, 180);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(92, 23);
+            comboBox2.TabIndex = 25;
+            comboBox2.Text = "     DEFENSA";
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(508, 285);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(92, 23);
+            comboBox3.TabIndex = 26;
+            comboBox3.Text = "     DEFENSA";
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(466, 85);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(100, 23);
+            comboBox4.TabIndex = 27;
+            comboBox4.Text = "     LATERAL D";
+            // 
+            // comboBox5
+            // 
+            comboBox5.FormattingEnabled = true;
+            comboBox5.Items.AddRange(new object[] { "Theo Hernández ", "", "", "Alphonso Davies ", "", "", "Nicolás Tagliafico" });
+            comboBox5.Location = new Point(472, 393);
+            comboBox5.Name = "comboBox5";
+            comboBox5.Size = new Size(94, 23);
+            comboBox5.TabIndex = 28;
+            comboBox5.Text = "    LATERAL I";
+            // 
+            // comboBox6
+            // 
+            comboBox6.FormattingEnabled = true;
+            comboBox6.Items.AddRange(new object[] { "Luka Modrić ", "Rodri Hernández ", "Enzo Fernández ", "Federico Valverde " });
+            comboBox6.Location = new Point(359, 229);
+            comboBox6.Name = "comboBox6";
+            comboBox6.Size = new Size(123, 23);
+            comboBox6.TabIndex = 29;
+            comboBox6.Text = "   MEDIO CENTRO";
+            // 
+            // comboBox7
+            // 
+            comboBox7.FormattingEnabled = true;
+            comboBox7.Location = new Point(292, 114);
+            comboBox7.Name = "comboBox7";
+            comboBox7.Size = new Size(121, 23);
+            comboBox7.TabIndex = 30;
+            comboBox7.Text = "   MEDIO CENTRO";
+            // 
+            // comboBox8
+            // 
+            comboBox8.FormattingEnabled = true;
+            comboBox8.Location = new Point(302, 337);
+            comboBox8.Name = "comboBox8";
+            comboBox8.Size = new Size(121, 23);
+            comboBox8.TabIndex = 31;
+            comboBox8.Text = "   MEDIO CENTRO";
+            // 
+            // comboBox9
+            // 
+            comboBox9.FormattingEnabled = true;
+            comboBox9.Location = new Point(78, 377);
+            comboBox9.Name = "comboBox9";
+            comboBox9.Size = new Size(121, 23);
+            comboBox9.TabIndex = 32;
+            comboBox9.Text = "   MEDIO CENTRO";
+            // 
+            // comboBox10
+            // 
+            comboBox10.FormattingEnabled = true;
+            comboBox10.Location = new Point(87, 238);
+            comboBox10.Name = "comboBox10";
+            comboBox10.Size = new Size(121, 23);
+            comboBox10.TabIndex = 33;
+            comboBox10.Text = "   MEDIO CENTRO";
+            // 
+            // comboBox11
+            // 
+            comboBox11.FormattingEnabled = true;
+            comboBox11.Location = new Point(78, 96);
+            comboBox11.Name = "comboBox11";
+            comboBox11.Size = new Size(121, 23);
+            comboBox11.TabIndex = 34;
+            comboBox11.Text = "   MEDIO CENTRO";
             // 
             // FrmPlantilla
             // 
@@ -296,7 +298,18 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(710, 450);
-            Controls.Add(button10);
+            Controls.Add(comboBox11);
+            Controls.Add(comboBox10);
+            Controls.Add(comboBox9);
+            Controls.Add(comboBox8);
+            Controls.Add(comboBox7);
+            Controls.Add(comboBox6);
+            Controls.Add(comboBox5);
+            Controls.Add(comboBox4);
+            Controls.Add(comboBox3);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
+            Controls.Add(pictureBox3);
             Controls.Add(pictureBox11);
             Controls.Add(pictureBox10);
             Controls.Add(pictureBox9);
@@ -305,24 +318,12 @@
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(button11);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Name = "FrmPlantilla";
             Text = "v";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -331,24 +332,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button11;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
@@ -357,6 +347,17 @@
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
         private PictureBox pictureBox11;
-        private Button button10;
+        private PictureBox pictureBox3;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private ComboBox comboBox4;
+        private ComboBox comboBox5;
+        private ComboBox comboBox6;
+        private ComboBox comboBox7;
+        private ComboBox comboBox8;
+        private ComboBox comboBox9;
+        private ComboBox comboBox10;
+        private ComboBox comboBox11;
     }
 }
