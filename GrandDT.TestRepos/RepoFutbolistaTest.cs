@@ -16,21 +16,13 @@ public class RepoFutbolistaTest : RepoTest
 
     public void AltaFutbolista()
     {
-        var Messi = new Futbolista()
-        {
-            Nombre = "Lionel",
-            Apodo = "Messi",
-            Nacimiento = new DateTime(1987, 6, 24),
-            idFutbolistas = 1,
-            Equipo = 1,
-            idTipoDeJugador = 1,
-            Cotizacion = 100000000,
-            Creado_por = "Test"
-        };
+        var Messi = new Futbolista("Lionel", "Messi", (1987, 6, 24), equipo,
+                                    tipoDeJugador, puntuaciones, 100000000, "Test"
+        =;)
 
-        Assert.Equal(0, Messi.idFutbolistas);
+        Assert.Equal(0, Messi.IdFutbolista);
         repo.AltaFutbolista(Messi);
-        Assert.NotEqual(0, Messi.idFutbolistas);
+        Assert.NotEqual(0, Messi.IdFutbolista);
     }
 
     [Fact]
@@ -44,7 +36,7 @@ public class RepoFutbolistaTest : RepoTest
 
         var primero = futbolistas.First();
 
-        Assert.NotEqual(0, primero.idFutbolistas);
+        Assert.NotEqual(0, primero.IdFutbolista);
         Assert.False(string.IsNullOrEmpty(primero.Nombre), "El campo Nombre no debe estar vacío.");
         Assert.NotEqual(default(DateTime), primero.Nacimiento);
     }
