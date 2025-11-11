@@ -16,7 +16,7 @@ public class RepoFutbolistaTest : RepoTest
 
     public void AltaFutbolista()
     {
-        var Messi = new Futbolista("Lionel", "Messi", (1987, 6, 24), equipo,
+        var Messi = new Futbolista("Lionel", "Messi", ( 1987, 6, 24), equipo,
                                     tipoDeJugador, puntuaciones, 100000000, "Test"
         =;)
 

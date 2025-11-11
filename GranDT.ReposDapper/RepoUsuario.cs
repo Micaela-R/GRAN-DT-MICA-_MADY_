@@ -49,14 +49,10 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     //TODO plantillas sin detalle en base al idUsuario
 
-    private static readonly string _queryPlantillasSinDetalle =
-    @"SELECT  *
-      FROM    Plantillas
-      WHERE   idUsuario = @idUsuario;
-
-      SELECT  u.idUsuario, u.Nombre, u.Apellido, u.Email
-      FROM    Usuario u
-      WHERE   u.idUsuario = @idUsuario;";
+    private static readonly string _queryPlantillasSinDetalle
+        = @"SELECT  *
+        FROM    Plantillas
+        WHERE   idUsuario = @idUsuario;";
 
     public IEnumerable<Plantilla> ObtenerPlantillasSinDetalle(int idUsuario)
     {
@@ -66,7 +62,7 @@ public class RepoUsuario : Repo, IRepoUsuario
     
             var usuario = multi.ReadSingle<Usuario>();
 
-            return plantillas.Select(p => p.Plantilla(Usuario)).ToList();
+            plantillas.ForEach(p => p.idUsuario = usuario.IdUsuario);
     }
     }
 
