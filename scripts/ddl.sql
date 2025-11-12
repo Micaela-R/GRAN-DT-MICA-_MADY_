@@ -249,6 +249,16 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 USE `5to_rosita_fresita`;
 
+DROP VIEW IF EXISTS PlantillaTitulares;
+CREATE VIEW PlantillaTitulares AS
+    SELECT  f.Nombre, f.Apodo, f.Nacimiento, f.Cotizacion, f.Creado_por,
+            e.idEquipo, e.Nombre AS NombreEquipo, e.Cantidad,
+            tj.idTipoDeJugador, tj.Tipo
+    FROM    Titular t
+    JOIN    Futbolistas f USING (idFutbolista)
+    JOIN    Equipo e ON f.idEquipo = e.idEquipo
+    JOIN    TipoDeJugador tj ON f.idTipoDeJugador = tj.idTipoDeJugador;
+
 DELIMITER $$
 USE `5to_rosita_fresita`$$
 CREATE
