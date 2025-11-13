@@ -26,7 +26,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Equipo` (
  `idEquipo` INT NOT NULL,
- `Cantidad` TINYINT(32) NULL,
  `Nombre` VARCHAR(45) NOT NULL,
  PRIMARY KEY (`idEquipo`))
 ENGINE = InnoDB;
