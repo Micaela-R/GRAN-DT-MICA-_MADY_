@@ -96,5 +96,4 @@ public class RepoFutbolista : Repo, IRepoFutbolista
                     cotizacion, creado_por, idFutbolista);
     }
 
-
 }

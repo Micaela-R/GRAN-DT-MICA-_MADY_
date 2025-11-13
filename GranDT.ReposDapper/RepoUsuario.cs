@@ -56,7 +56,7 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     public IEnumerable<Plantilla> ObtenerPlantillasSinDetalle(int idUsuario)
     {
-        return Conexion.Query<Plantilla>();
+        return Conexion.Query<Plantilla>(_queryPlantillaSuperCargada);
     }
 
     private IEnumerable<Plantilla> Read<T>()
