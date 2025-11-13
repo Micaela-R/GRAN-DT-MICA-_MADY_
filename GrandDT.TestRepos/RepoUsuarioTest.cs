@@ -48,4 +48,61 @@ public class RepoUsuarioTest : RepoTest
 
         Assert.Null(usuario);
     }
+
+    [Fact]
+
+    public void ObtenerPlantillasSinDetalle_OK()
+    {
+        int idUsuario = 3; //Debe existir en tu base de datos pero con una plantilla sin detalle asociada.
+
+        var plantillas = repo.ObtenerPlantillasSinDetalle(idUsuario);
+
+        Assert.NotNull(plantillas);
+        Assert.True(plantillas.Any(),
+            "No se encontraron plantillas para el usuario, verifica que existan en la tabla Plantillas.");
+
+        var primera = plantillas.First();
+        Assert.Equal(idUsuario, primera.IdUsuario);
+
+        // Si tu clase Plantilla tiene una colección de detalles:
+        // Assert.Empty(primera.Detalles);
+
+        Assert.False(string.IsNullOrEmpty(primera.Nombre),
+            "El campo Nombre no debe estar vacío.");
+    }
+
+    [Fact]
+    
+    public void ObtenerPlantillaSuperCargada_OK()
+    {
+        int idPlantilla = 1;
+
+        var plantilla = repo.ObtenerPlantillaSuperCargada(idPlantilla);
+
+        Assert.NotNull(plantilla);
+        Assert.Equal(idPlantilla, plantilla.IdPlantilla);
+
+        // Verificamos los datos básicos
+        Assert.False(string.IsNullOrEmpty(plantilla.Nombre), "El nombre de la plantilla no debe ser vacío.");
+        Assert.True(plantilla.IdUsuario > 0, "La plantilla debe pertenecer a un usuario válido.");
+
+        Assert.NotNull(plantilla.Titulares);
+        Assert.NotNull(plantilla.Suplentes);
+
+        if (plantilla.Titulares.Any())
+            {
+                var titular = plantilla.Titulares.First();
+                Assert.NotEqual(0, titular.IdFutbolista);
+                Assert.False(string.IsNullOrEmpty(titular.Nombre));
+                Assert.NotNull(titular.Equipo);
+                Assert.NotNull(titular.TipoDeJugador);
+            }
+
+        if (plantilla.Suplentes.Any())
+            {
+                var suplente = plantilla.Suplentes.First();
+                Assert.NotEqual(0, suplente.IdFutbolista);
+                Assert.False(string.IsNullOrEmpty(suplente.Nombre));
+            }
+    }
 }

@@ -49,25 +49,19 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     //TODO plantillas sin detalle en base al idUsuario
 
-    private static readonly string _queryPlantillasSinDetalle =
-    @"SELECT  *
-      FROM    Plantillas
-      WHERE   idUsuario = @idUsuario;
-
-      SELECT  u.idUsuario, u.Nombre, u.Apellido, u.Email
-      FROM    Usuario u
-      WHERE   u.idUsuario = @idUsuario;";
+    private static readonly string _queryPlantillasSinDetalle
+        = @"SELECT  *
+        FROM    Plantillas
+        WHERE   idUsuario = @idUsuario;";
 
     public IEnumerable<Plantilla> ObtenerPlantillasSinDetalle(int idUsuario)
     {
-    using (var multi = Conexion.QueryMultiple(_queryPlantillasSinDetalle, new { idUsuario }))
-    {
-            var plantillas = multi.Read<DtoPlantillaSinDetalle>().ToList();
-    
-            var usuario = multi.ReadSingle<Usuario>();
-
-            return plantillas.Select(p => p.Plantilla(Usuario)).ToList();
+        return Conexion.Query<Plantilla>(_queryPlantillaSuperCargada);
     }
+
+    private IEnumerable<Plantilla> Read<T>()
+    {
+        throw new NotImplementedException();
     }
 
     record struct DtoPlantillaSinDetalle(int idPlantilla, string nombre, int idUsuario)
@@ -77,26 +71,18 @@ public class RepoUsuario : Repo, IRepoUsuario
     }
 
     //TODO plantilla super cargada en base al idplantilla
-    
+
     private static readonly string _queryPlantillaSuperCargada
 
         = @" SELECT  
         idPlantilla, Nombre, idUsuario
         FROM    Plantillas
         WHERE   idPlantilla = @id;
-
-        SELECT  idUsuario, Nombre, Apellido, Email, Nacimiento
-        FROM    Usuario
-        WHERE   idUsuario = (SELECT idUsuario FROM Plantillas WHERE idPlantilla = @id);
-
-        SELECT  f.idFutbolista, f.Nombre, f.Apodo, f.Nacimiento, f.Cotizacion, f.Creado_por,
-                e.idEquipo, e.Nombre AS NombreEquipo, e.Cantidad,
-                tj.idTipoDeJugador, tj.Tipo
-        FROM    Titular t
-        JOIN    Futbolistas f ON t.idFutbolista = f.idFutbolista
-        JOIN    Equipo e ON f.idEquipo = e.idEquipo
-        JOIN    TipoDeJugador tj ON f.idTipoDeJugador = tj.idTipoDeJugador
+        
+        SELECT  *
+        FROM    PlantillaTitulares
         WHERE   t.idPlantilla = @id;
+
 
         SELECT  f.idFutbolista, f.Nombre, f.Apodo, f.Nacimiento, f.Cotizacion, f.Creado_por,
                 e.idEquipo, e.Nombre AS NombreEquipo, e.Cantidad,
@@ -111,20 +97,19 @@ public class RepoUsuario : Repo, IRepoUsuario
     {
         using (var multi = Conexion.QueryMultiple(_queryPlantillaSuperCargada, new { id = idPlantilla }))
         {
-             // 1 Leemos la plantilla
+            // 1 Leemos la plantilla
             var dtoPlantilla = multi.ReadSingleOrDefault<DtoPlantillaSuperCargada?>();
-                if (dtoPlantilla is null)
+            if (dtoPlantilla is null)
                 return null;
 
             // 2 Leemos los titulares
-            var titulares = multi.Read<DtoDetalleFutbolista>()
-                             .Select(f => f.Futbolista())
-                             .ToList();
+            IEnumerable<Futbolista> titulares = multi.Read<DtoDetalleFutbolista>()
+                            .Select(dtoFutbolista => dtoFutbolista.Futbolista());
 
             // 3 Leemos los suplentes
             var suplentes = multi.Read<DtoDetalleFutbolista>()
-                             .Select(f => f.Futbolista())
-                             .ToList();
+                            .Select(f => f.Futbolista())
+                            .ToList();
 
             // 4 Construimos la plantilla completa
             return dtoPlantilla.Value.Plantilla(titulares, suplentes);
@@ -133,31 +118,47 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     record struct DtoPlantillaSuperCargada(int idPlantilla, string nombre, int idUsuario)
     {
-    public Plantilla Plantilla(IEnumerable<Futbolista> titulares,
-                               IEnumerable<Futbolista> suplentes)
-        => new(idUsuario, nombre, idPlantilla)
-        {
-            Titulares = titulares,
-            Suplentes = suplentes
-        };
+        public Plantilla Plantilla(IEnumerable<Futbolista> titulares,
+                                IEnumerable<Futbolista> suplentes)
+            => new(idUsuario, nombre, idPlantilla)
+            {
+                Titulares = titulares,
+                Suplentes = suplentes
+            };
     }
-    
-    record struct DtoDetalleFutbolista(int idFutbolista,
-    string nombre,
-    string? apodo,
-    DateTime nacimiento,
-    decimal cotizacion,
-    string creado_por,
-    int idEquipo,
-    string nombreEquipo,
-    byte cantidad,
-    int idTipoDeJugador,
-    string tipo)
 
+    record struct DtoDetalleFutbolista(int IdFutbolista,
+        string nombre,
+        string? apodo,
+        DateTime nacimiento,
+        decimal cotizacion,
+        string creado_por,
+        int idEquipo,
+        string nombreEquipo,
+        int idTipoDeJugador,
+        string tipo)
     {
-        public Futbolista Futbolista(Equipo equipo, TipoDeJugador tipo,
-                                    IEnumerable<Puntuacion> puntuaciones)
-            => new(nombre, apodo, nacimiento, equipo, tipo, puntuaciones,
-                    cotizacion, creado_por, idFutbolista);
+        public Futbolista Futbolista()
+        {
+            var equipo =
+                new Equipo()
+                {
+                    idEquipo = idEquipo,
+                    Nombre = nombreEquipo
+                };
+
+            var tipoFutbolista =
+                new TipoDeJugador()
+                {
+                    IdTipoDeJugador = idTipoDeJugador,
+                    Tipo = tipo
+                };
+
+            return
+                new Futbolista(nombre, apodo, nacimiento,
+                    equipo, tipoFutbolista, [], cotizacion,
+                    creado_por, IdFutbolista);
+        }
+
     }
 }
