@@ -48,6 +48,45 @@ public class RepoFutbolista : Repo, IRepoFutbolista
         return Conexion.Query<TipoDeJugador>(sql);
     }
 
+    // Obtener a los futbolistas en base a su IdTipo
+
+    public IEnumerable<Futbolista> ObtenerFutbolistasPorTipo(int idTipoDeJugador)
+    {
+            var sql
+            = @"
+            SELECT  
+            f.idFutbolista,
+            f.Nombre,
+            f.Apodo,
+            f.Nacimiento,
+            f.Cotizacion,
+            f.Creado_por,
+            e.idEquipo,
+            e.Nombre AS NombreEquipo,
+            e.Cantidad,
+            tj.idTipoDeJugador,
+            tj.Tipo
+        FROM    Futbolistas f
+        JOIN    Equipo e ON f.idEquipo = e.idEquipo
+        JOIN    TipoDeJugador tj ON f.idTipoDeJugador = tj.idTipoDeJugador
+        WHERE   f.idTipoDeJugador = @idTipoDeJugador;";
+
+    // Usamos un Query anónimo que crea correctamente los objetos
+    var resultado = Conexion.Query<Futbolista, Equipo, TipoDeJugador, Futbolista>(
+        sql,
+        (futbolista, equipo, tipo) =>
+        {
+            futbolista.Equipo = equipo;
+            futbolista.TipoDeJugador = tipo;
+            return futbolista;
+        },
+        new { idTipoDeJugador },
+        splitOn: "idEquipo,idTipoDeJugador"
+    );
+
+    return resultado;
+}
+
     // Obtener a los futbolistas con sus puntuaciones cargadas
 
     private static readonly string _queryFutbolista
