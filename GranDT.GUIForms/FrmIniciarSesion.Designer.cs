@@ -120,7 +120,7 @@
             lblContraseña.BackColor = Color.Transparent;
             lblContraseña.Font = new Font("Segoe UI Historic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblContraseña.ForeColor = Color.White;
-            lblContraseña.Location = new Point(175, 268);
+            lblContraseña.Location = new Point(175, 252);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(117, 25);
             lblContraseña.TabIndex = 13;
@@ -135,9 +135,9 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(298, 273);
+            textBox2.Location = new Point(298, 252);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(164, 23);
+            textBox2.Size = new Size(182, 23);
             textBox2.TabIndex = 15;
             // 
             // button1

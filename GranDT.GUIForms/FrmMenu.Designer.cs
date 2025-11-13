@@ -32,7 +32,6 @@
             label1 = new Label();
             button3 = new Button();
             button2 = new Button();
-            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -51,7 +50,7 @@
             // button3
             // 
             button3.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(536, 197);
+            button3.Location = new Point(464, 188);
             button3.Name = "button3";
             button3.Size = new Size(108, 44);
             button3.TabIndex = 3;
@@ -61,24 +60,13 @@
             // button2
             // 
             button2.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(348, 197);
+            button2.Location = new Point(221, 188);
             button2.Name = "button2";
             button2.Size = new Size(107, 44);
             button2.TabIndex = 2;
             button2.Text = "Equipos";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(162, 197);
-            button1.Name = "button1";
-            button1.Size = new Size(99, 44);
-            button1.TabIndex = 1;
-            button1.Text = "Jugadores";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // FrmMenu
             // 
@@ -89,7 +77,6 @@
             ClientSize = new Size(800, 450);
             Controls.Add(button3);
             Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(label1);
             Name = "FrmMenu";
             Text = "Menu";
@@ -102,6 +89,5 @@
         private Label label1;
         private Button button3;
         private Button button2;
-        private Button button1;
     }
 }

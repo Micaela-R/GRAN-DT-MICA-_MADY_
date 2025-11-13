@@ -267,29 +267,29 @@
             // comboBox9
             // 
             comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new Point(78, 377);
+            comboBox9.Location = new Point(97, 377);
             comboBox9.Name = "comboBox9";
-            comboBox9.Size = new Size(121, 23);
+            comboBox9.Size = new Size(87, 23);
             comboBox9.TabIndex = 32;
-            comboBox9.Text = "   MEDIO CENTRO";
+            comboBox9.Text = "EXTREMO I";
             // 
             // comboBox10
             // 
             comboBox10.FormattingEnabled = true;
             comboBox10.Location = new Point(87, 238);
             comboBox10.Name = "comboBox10";
-            comboBox10.Size = new Size(121, 23);
+            comboBox10.Size = new Size(142, 23);
             comboBox10.TabIndex = 33;
-            comboBox10.Text = "   MEDIO CENTRO";
+            comboBox10.Text = "DELANTERO CENTRAL";
             // 
             // comboBox11
             // 
             comboBox11.FormattingEnabled = true;
-            comboBox11.Location = new Point(78, 96);
+            comboBox11.Location = new Point(97, 96);
             comboBox11.Name = "comboBox11";
-            comboBox11.Size = new Size(121, 23);
+            comboBox11.Size = new Size(90, 23);
             comboBox11.TabIndex = 34;
-            comboBox11.Text = "   MEDIO CENTRO";
+            comboBox11.Text = "EXTREMO D";
             // 
             // FrmPlantilla
             // 

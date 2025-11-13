@@ -16,5 +16,10 @@ namespace GRAN_DT_MICA__MADY_
         {
             InitializeComponent();
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

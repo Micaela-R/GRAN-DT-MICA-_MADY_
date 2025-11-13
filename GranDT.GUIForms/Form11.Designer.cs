@@ -28,12 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form11";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
+            listBox1 = new ListBox();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Items.AddRange(new object[] { "    ", "     Nombres: ", "", "", "Argentina", "Brasil", "Francia", "Alemania", "España", "Inglaterra", "Portugal", "Países Bajos", "Bélgica", "Uruguay", "Croacia", "Suiza", "Polonia", "Dinamarca", "México", "Estados Unidos", "Japón", "Corea del Sur", "Marruecos", "Senegal", "Australia", "Canadá", "Ecuador", "Camerún", "Serbia", "Túnez", "Irán", "Arabia Saudita", "Ghana", "Costa Rica" });
+            listBox1.Location = new Point(407, 111);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(111, 49);
+            listBox1.TabIndex = 0;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(393, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(135, 40);
+            label1.TabIndex = 1;
+            label1.Text = "EQUIPOS";
+            // 
+            // Form11
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(957, 574);
+            Controls.Add(label1);
+            Controls.Add(listBox1);
+            Name = "Form11";
+            Text = "Form11";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ListBox listBox1;
+        private Label label1;
     }
 }
