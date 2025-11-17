@@ -70,9 +70,12 @@ public class RepoFutbolistaTest : RepoTest
 
     public void ObtenerFutbolista_IdNoExiste_DevuelveNull()
     {
+
+
+        
         int idInexistente = 9999;
 
-        var resultado = repo.ObtenerFutbolistas(idInexistente);
+        var resultado = repo.TraerFutbolistaPorPocision(idInexistente);
 
         Assert.Null(resultado);
     }
