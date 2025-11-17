@@ -6,7 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace GranDT.ReposDapper;
 
-    public class RepoEquipos
+    public class RepoEquipos 
 {
     
 }

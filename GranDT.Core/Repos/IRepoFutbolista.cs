@@ -7,5 +7,6 @@ public interface IRepoFutbolista
     void AltaFutbolista(Futbolista futbolista);
     IEnumerable<Futbolista> ObtenerFutbolistas();
     IEnumerable<TipoDeJugador> ObtenerTipoJugadores();
+    Futbolista? ObtenerFutbolista(int idFutbolista);
     
 }
