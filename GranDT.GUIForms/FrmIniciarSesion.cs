@@ -12,6 +12,7 @@ namespace GRAN_DT_MICA__MADY_
 {
     public partial class FrmIniciarSesion : Form
     {
+        readonly IRepoFrmIniciarSesion repoFrmIniciarSecion;
         public FrmIniciarSesion()
         {
             InitializeComponent();

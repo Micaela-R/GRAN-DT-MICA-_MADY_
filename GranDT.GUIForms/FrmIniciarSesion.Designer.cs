@@ -146,7 +146,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Sitka Small", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(283, 348);
+            button1.Location = new Point(283, 329);
             button1.Name = "button1";
             button1.Size = new Size(129, 34);
             button1.TabIndex = 16;
