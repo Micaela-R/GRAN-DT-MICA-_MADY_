@@ -1,21 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GranDT.ReposDapper;
+using MySqlConnector;
+using GranDT.Core.Repos;
 
 namespace GRAN_DT_MICA__MADY_
 {
     public partial class FrmIniciarSesion : Form
     {
-        readonly IRepoFrmIniciarSesion repoFrmIniciarSecion;
+        readonly IRepoUsuario repoUsuario;
         public FrmIniciarSesion()
         {
+            repo = new RepoUsuario();
             InitializeComponent();
+        }
+
+        public FrmIniciarSesion();
+        {
+            InitializeComponent();
+
+            var cadena = "Server=localhost;User ID=root;Password=root;Database=5to_rosita_fresita;";
+            var conexion = new MySqlConnection(cadena);
+            repo = new RepoUsuario(conexion);
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
