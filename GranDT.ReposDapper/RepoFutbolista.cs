@@ -52,40 +52,52 @@ public class RepoFutbolista : Repo, IRepoFutbolista
 
     public IEnumerable<Futbolista> ObtenerFutbolistasPorTipo(int idTipoDeJugador)
     {
-            var sql
-            = @"
-            SELECT  
-            f.idFutbolista,
-            f.Nombre,
-            f.Apodo,
-            f.Nacimiento,
-            f.Cotizacion,
-            f.Creado_por,
-            e.idEquipo,
-            e.Nombre AS NombreEquipo,
-            e.Cantidad,
-            tj.idTipoDeJugador,
-            tj.Tipo
+    var sql = @"
+        SELECT  f.idFutbolista, f.Nombre, f.Apodo, f.Nacimiento, 
+                f.Cotizacion, f.Creado_por
         FROM    Futbolistas f
-        JOIN    Equipo e ON f.idEquipo = e.idEquipo
-        JOIN    TipoDeJugador tj ON f.idTipoDeJugador = tj.idTipoDeJugador
-        WHERE   f.idTipoDeJugador = @idTipoDeJugador;";
+        WHERE   f.idTipoDeJugador = @idTipo;
 
-    // Usamos un Query anónimo que crea correctamente los objetos
-    var resultado = Conexion.Query<Futbolista, Equipo, TipoDeJugador, Futbolista>(
-        sql,
-        (futbolista, equipo, tipo) =>
+        SELECT  e.idEquipo, e.Nombre, e.Cantidad
+        FROM    Equipo e
+        JOIN    Futbolistas f ON f.idEquipo = e.idEquipo
+        WHERE   f.idTipoDeJugador = @idTipo;
+
+        SELECT  tj.idTipoDeJugador, tj.Tipo
+        FROM    TipoDeJugador tj
+        WHERE   tj.idTipoDeJugador = @idTipo;
+
+        SELECT  p.*
+        FROM    Puntuacion p
+        JOIN    Futbolistas f ON p.idFutbolista = f.idFutbolista
+        WHERE   f.idTipoDeJugador = @idTipo;";
+
+        using (var multi = Conexion.QueryMultiple(sql, new { idTipo = idTipoDeJugador }))
         {
-            futbolista.Equipo = equipo;
-            futbolista.TipoDeJugador = tipo;
-            return futbolista;
-        },
-        new { idTipoDeJugador },
-        splitOn: "idEquipo,idTipoDeJugador"
-    );
+            var futbolistasDto = multi.Read<DtoDetalleFutbolista>().ToList();
 
-    return resultado;
-}
+            if (!futbolistasDto.Any())
+                return Enumerable.Empty<Futbolista>();
+
+                var equipos = multi.Read<Equipo>().ToList();
+
+                var tipo = multi.ReadSingle<TipoDeJugador>();
+
+                var puntuaciones = multi.Read<Puntuacion>().ToList();
+
+            return futbolistasDto.Select(dto =>
+            {
+                var equipo = equipos.First(e => 
+                true // ya que la consulta trae solo los del mismo tipo
+                );
+
+                var puntajeFutbоlista = puntuaciones
+                .Where(p => p.idFutbolista == dto.idFutbolista);
+
+                return dto.Futbolista(equipo, tipo, puntuaciones);
+            });
+        }
+    }
 
     // Obtener a los futbolistas con sus puntuaciones cargadas
 

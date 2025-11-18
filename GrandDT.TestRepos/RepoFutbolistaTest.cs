@@ -1,3 +1,4 @@
+using Dapper;
 using GrandDT.TestRepos;
 using GranDT;
 using GranDT.Core.Futbol;
@@ -68,14 +69,53 @@ public class RepoFutbolistaTest : RepoTest
 
     [Fact]
 
+    public void ObtenerFutbolistasPorTipo_ExistenFutbolistas_DeberiaDevolverlos()
+    {
+        int idTipo = 2;
+
+        Conexion.Execute("INSERT INTO TipoDeJugador (idTipoDeJugador, Tipo) VALUES (2, 'Medio')");
+
+        Conexion.Execute("INSERT INTO Equipo (idEquipo, Nombre, Cantidad) VALUES (10, 'Boca', 25)");
+
+        Conexion.Execute(@"
+        INSERT INTO Futbolistas 
+        (idFutbolista, Nombre, Apodo, Nacimiento, idEquipo, idTipoDeJugador, Cotizacion, Creado_por)
+        VALUES
+        (1, 'Juan', 'El 10', '1990-01-01', 10, 2, 5000000, 'admin'),
+        (2, 'Pedro', 'Pedrito', '1992-05-10', 10, 2, 4200000, 'admin')
+        ");
+
+        Conexion.Execute(@"
+        INSERT INTO Puntuacion (idPuntuacion, idFutbolista, Fecha, Puntos)
+        VALUES
+        (100, 1, '2024-01-01', 8),
+        (101, 1, '2024-01-08', 6),
+        (200, 2, '2024-01-01', 7)
+        ");
+
+        var repo = new RepoFutbolista(Conexion);
+        var resultado = repo.ObtenerFutbolistasPorTipo(idTipo).ToList();
+
+        Assert.NotEmpty(resultado);
+        Assert.Equal(2, resultado.Count);
+
+        var f1 = resultado.First(f => f.IdFutbolista == 1);
+        Assert.Equal("Juan", f1.Nombre);
+        Assert.Equal("Medio", f1.TipoDeJugador.Tipo);
+        Assert.Equal("Boca", f1.Equipo.Nombre);
+        Assert.True(f1.Puntuaciones.Any());
+
+        var f2 = resultado.First(f => f.IdFutbolista == 2);
+        Assert.Equal("Pedro", f2.Nombre);
+    }
+
+    [Fact]
+
     public void ObtenerFutbolista_IdNoExiste_DevuelveNull()
     {
-
-
-        
         int idInexistente = 9999;
 
-        var resultado = repo.TraerFutbolistaPorPocision(idInexistente);
+        var resultado = repo.ObtenerFutbolista(idInexistente);
 
         Assert.Null(resultado);
     }
@@ -86,7 +126,7 @@ public class RepoFutbolistaTest : RepoTest
     {
         int idFutbolista = 2; // debe existir en tu BD, pero sin puntuaciones asociadas
 
-        var resultado = repo.ObtenerDetalleFutbolista(idFutbolista);
+        var resultado = repo.ObtenerFutbolista(idFutbolista);
 
         Assert.NotNull(resultado);
         Assert.Equal(idFutbolista, resultado.IdFutbolista);
@@ -100,7 +140,7 @@ public class RepoFutbolistaTest : RepoTest
     {
         int idFutbolista = 1; // debe existir en tu BD con puntuaciones cargadas
 
-        var resultado = repo.ObtenerDetalleFutbolista(idFutbolista);
+        var resultado = repo.ObtenerFutbolista(idFutbolista);
 
         Assert.NotNull(resultado);
         Assert.Equal(idFutbolista, resultado.IdFutbolista);
