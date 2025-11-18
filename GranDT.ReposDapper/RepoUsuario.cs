@@ -116,6 +116,11 @@ public class RepoUsuario : Repo, IRepoUsuario
         }
     }
 
+    Plantilla? IRepoUsuario.ObtenerPlantillasSinDetalle(int idUsuario)
+    {
+        throw new NotImplementedException();
+    }
+
     record struct DtoPlantillaSuperCargada(int idPlantilla, string nombre, int idUsuario)
     {
         public Plantilla Plantilla(IEnumerable<Futbolista> titulares,
