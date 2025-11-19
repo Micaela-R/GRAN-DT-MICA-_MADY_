@@ -53,21 +53,15 @@ public class RepoUsuarioTest : RepoTest
 
     public void ObtenerPlantillasSinDetalle_OK()
     {
-        int idUsuario = 3; //Debe existir en tu base de datos pero con una plantilla sin detalle asociada.
+        int idUsuario = 3; 
 
-        var plantillas = repo.ObtenerPlantillasSinDetalle(idUsuario);
+        var plantilla = repo.ObtenerPlantillasSinDetalle(idUsuario);
 
-        Assert.NotNull(plantillas);
-        Assert.True(plantillas.Any(),
-            "No se encontraron plantillas para el usuario, verifica que existan en la tabla Plantillas.");
+        Assert.NotNull(plantilla);
 
-        var primera = plantillas.First();
-        Assert.Equal(idUsuario, primera.IdUsuario);
+        Assert.Equal(idUsuario, plantilla.IdUsuario);
 
-        // Si tu clase Plantilla tiene una colección de detalles:
-        // Assert.Empty(primera.Detalles);
-
-        Assert.False(string.IsNullOrEmpty(primera.Nombre),
+        Assert.False(string.IsNullOrEmpty(plantilla.Nombre),
             "El campo Nombre no debe estar vacío.");
     }
 

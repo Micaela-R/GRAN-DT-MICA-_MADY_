@@ -1,4 +1,5 @@
 USE `5to_rosita_fresita`;
+
 -- Procedimiento para dar de alta al usuario en base a su email y contrasena
 
 DELIMITER $$

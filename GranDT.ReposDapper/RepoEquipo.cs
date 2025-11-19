@@ -32,13 +32,15 @@ public class RepoEquipo : Repo, IRepoEquipo
     public IEnumerable<Equipo> TraerEquipos()
     {
         try
-            {
-                var equipos = Conexion.Query<Equipo>("traer_equipos", commandType: CommandType.StoredProcedure);
-                return equipos;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al traer los equipos.", ex);
-            }
+        {
+            var sql = "SELECT IdEquipo, Nombre, Ciudad, FechaFundacion FROM Equipos";
+
+            var equipos = Conexion.Query<Equipo>(sql);
+            return equipos;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error al traer los equipos.", ex);
+        }
     }
 }
