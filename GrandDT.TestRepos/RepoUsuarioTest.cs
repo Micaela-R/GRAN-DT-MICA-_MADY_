@@ -53,16 +53,14 @@ public class RepoUsuarioTest : RepoTest
 
     public void ObtenerPlantillasSinDetalle_OK()
     {
-        int idUsuario = 3; 
+        int idPlantilla = 2; 
 
-        var plantilla = repo.ObtenerPlantillasSinDetalle(idUsuario);
+        var plantilla = repo.ObtenerPlantillasSinDetalle(idPlantilla);
 
         Assert.NotNull(plantilla);
 
-        Assert.Equal(idUsuario, plantilla.IdUsuario);
-
-        Assert.False(string.IsNullOrEmpty(plantilla.Nombre),
-            "El campo Nombre no debe estar vacío.");
+        Assert.Equal(idPlantilla, plantilla.IdPlantilla);
+        Assert.Equal("Cancha B", plantilla.Nombre); ;
     }
 
     [Fact]

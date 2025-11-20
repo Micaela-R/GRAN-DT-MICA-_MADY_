@@ -49,7 +49,7 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     //TODO plantillas sin detalle en base al idUsuario
 
-    private static readonly string _queryPlantillasSinDetalle
+    private static readonly string _queryPlantillaSinDetalle
         = @"SELECT  *
         FROM    Plantillas
         WHERE   idUsuario = @idUsuario;";
@@ -118,7 +118,8 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     Plantilla? IRepoUsuario.ObtenerPlantillasSinDetalle(int idUsuario)
     {
-        throw new NotImplementedException();
+        var plantilla = Conexion.QueryFirstOrDefault<Plantilla>(_queryPlantillaSinDetalle, new{ id = idUsuario });
+        return plantilla;;
     }
 
     record struct DtoPlantillaSuperCargada(int idPlantilla, string nombre, int idUsuario)

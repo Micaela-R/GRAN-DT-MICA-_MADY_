@@ -1,3 +1,5 @@
+using System.Collections;
+using System.ComponentModel;
 using GranDT.Core.Futbol;
 using GranDT.Core.Repos;
 using GranDT.ReposDapper;
@@ -18,12 +20,12 @@ public class RepoEquipoTest : RepoTest
         {
             idEquipo = 0,
             Nombre = "PSG",
-            Cantidad = 25
+
         };
 
         Assert.Equal(0, equipo.idEquipo);
         repo.AltaEquipo(equipo);
-        Assert.NotEqual(0, equipo.idEquipo);
+        Assert.NotEqual(0, actual: equipo.idEquipo);
     }
 
     [Fact]
@@ -32,13 +34,12 @@ public class RepoEquipoTest : RepoTest
         var equipos = repo.TraerEquipos();
 
         Assert.NotNull(equipos);
-        Assert.True(equipos.Any(),"La lista de equipos está vacía, verifica que existan registros en la tabla Equipos.");
+        Assert.Contains(equipos, e => e.Nombre == "Equipo A");
 
         var primero = equipos.First();
 
         Assert.NotEqual(0, primero.idEquipo);
         Assert.False(string.IsNullOrEmpty(primero.Nombre), "El campo Nombre no debe estar vacío.");
-        Assert.True(primero.Cantidad > 0, "La cantidad debe ser mayor que cero.");
     }
 
 }

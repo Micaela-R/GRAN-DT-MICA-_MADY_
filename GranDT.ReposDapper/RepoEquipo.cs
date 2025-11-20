@@ -13,34 +13,39 @@ public class RepoEquipo : Repo, IRepoEquipo
 
     public void AltaEquipo(Equipo equipo)
     {
-        var parametros = new DynamicParameters();
+        var sql = @"
+        INSERT INTO Equipo (Nombre)
+        VALUES (@Nombre);
+        SELECT last_insert_id();
+        ";
 
-            parametros.Add("@p_idEquipo", equipo.idEquipo);
-            parametros.Add("@p_Nombre", equipo.Nombre);
-            parametros.Add("@p_Cantidad", equipo.Cantidad);
+        try
+        {
+            int nuevoId = Conexion.ExecuteScalar<int>(sql, new
+        {
+            Nombre = equipo.Nombre
+        });
 
-            try
-            {
-                Conexion.Execute("alta_equipo", parametros, commandType: CommandType.StoredProcedure);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al dar de alta el equipo.", ex);
-            }
+            equipo.idEquipo = nuevoId;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error al dar de alta el equipo.", ex);
+        }
     }
 
     public IEnumerable<Equipo> TraerEquipos()
     {
         try
         {
-            var sql = "SELECT IdEquipo, Nombre, Ciudad, FechaFundacion FROM Equipos";
+            var sql = "SELECT IdEquipo, Nombre, Ciudad, FechaFundacion FROM Equipo";
 
             var equipos = Conexion.Query<Equipo>(sql);
             return equipos;
         }
         catch (Exception ex)
         {
-            throw new Exception("Error al traer los equipos.", ex);
+            throw new Exception("Error al traer los equipo.", ex);
         }
     }
 }
