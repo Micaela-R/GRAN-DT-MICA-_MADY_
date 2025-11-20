@@ -37,11 +37,10 @@ SELECT 'Agregando Equipo' AS Estado;
 INSERT INTO
     `Equipo` (
         `idEquipo`,
-        `Cantidad`,
         `Nombre`
     )
-VALUES (1, 11, 'Equipo A'),
-    (2, 11, 'Equipo B');
+VALUES (1, 'Equipo A'),
+    (2, 'Equipo B');
 
     SELECT 'Agregando TipoDeJugador' AS Estado;
 

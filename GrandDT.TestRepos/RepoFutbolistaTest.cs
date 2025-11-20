@@ -71,42 +71,49 @@ public class RepoFutbolistaTest : RepoTest
 
     public void ObtenerFutbolistasPorTipo_ExistenFutbolistas_DeberiaDevolverlos()
     {
-        int idTipo = 2;
+        var tipo = Conexion.QuerySingle<TipoDeJugador>(
+        "SELECT * FROM TipoDeJugador WHERE idTipoDeJugador = 1");
 
-        Conexion.Execute("INSERT INTO TipoDeJugador (idTipoDeJugador, Tipo) VALUES (2, 'Medio')");
+        Assert.NotNull(tipo);
 
-        Conexion.Execute("INSERT INTO Equipo (idEquipo, Nombre, Cantidad) VALUES (10, 'Boca', 25)");
+        Conexion.Execute("INSERT INTO Equipo (idEquipo, Nombre) VALUES (3, 'River')");
 
-        Conexion.Execute(@"
-        INSERT INTO Futbolistas 
-        (idFutbolista, Nombre, Apodo, Nacimiento, idEquipo, idTipoDeJugador, Cotizacion, Creado_por)
-        VALUES
-        (1, 'Juan', 'El 10', '1990-01-01', 10, 2, 5000000, 'admin'),
-        (2, 'Pedro', 'Pedrito', '1992-05-10', 10, 2, 4200000, 'admin')
-        ");
+        Conexion.Execute
+            (@"
+            INSERT INTO Futbolistas 
+            (idFutbolista, Nombre, Apodo, Nacimiento, idEquipo, idTipoDeJugador, Cotizacion, Creado_por)
+            VALUES
+            (2, 'Juan Pérez', 'El Tigre', '1990-06-15', 2, 2, 50000.00, 'Admin')
+            ");
 
-        Conexion.Execute(@"
-        INSERT INTO Puntuacion (idPuntuacion, idFutbolista, Fecha, Puntos)
-        VALUES
-        (100, 1, '2024-01-01', 8),
-        (101, 1, '2024-01-08', 6),
-        (200, 2, '2024-01-01', 7)
-        ");
+        Conexion.Execute
+            (@"
+            INSERT INTO Puntuacion (idPuntuacion, idFutbolista, Fecha, Puntos)
+            VALUES
+            (100, 1, '2024-01-01', 8),
+            (101, 2, '2024-01-08', 6)
+            ");
 
         var repo = new RepoFutbolista(Conexion);
-        var resultado = repo.ObtenerFutbolistasPorTipo(idTipo).ToList();
+        var resultado = repo.ObtenerFutbolistasPorTipo(tipo.IdTipoDeJugador);
 
         Assert.NotEmpty(resultado);
-        Assert.Equal(2, resultado.Count);
 
-        var f1 = resultado.First(f => f.IdFutbolista == 1);
-        Assert.Equal("Juan", f1.Nombre);
-        Assert.Equal("Medio", f1.TipoDeJugador.Tipo);
-        Assert.Equal("Boca", f1.Equipo.Nombre);
-        Assert.True(f1.Puntuaciones.Any());
+        var juan = resultado.First();
 
-        var f2 = resultado.First(f => f.IdFutbolista == 2);
-        Assert.Equal("Pedro", f2.Nombre);
+        Assert.Equal(1, juan.IdFutbolista);
+        Assert.Equal("Juan Pérez", juan.Nombre);
+        Assert.Equal("El Tigre", juan.Apodo);
+        Assert.Equal(new DateTime(1990, 6, 15), juan.Nacimiento);
+
+        Assert.Equal(tipo.Tipo, juan.TipoDeJugador.Tipo);
+        Assert.Equal(tipo.IdTipoDeJugador, juan.TipoDeJugador.IdTipoDeJugador);
+
+        Assert.NotNull(juan.Equipo);
+        Assert.Equal("River", juan.Equipo.Nombre);
+
+        Assert.True(juan.Puntuaciones.Any());
+        Assert.Equal(2, juan.Puntuaciones.Count());
     }
 
     [Fact]
@@ -124,14 +131,14 @@ public class RepoFutbolistaTest : RepoTest
 
     public void ObtenerDetalleFutbolista_SinPuntuaciones()
     {
-        int idFutbolista = 2; // debe existir en tu BD, pero sin puntuaciones asociadas
+        int idFutbolista = 2; // debe existir en tu BD
 
-        var resultado = repo.ObtenerFutbolista(idFutbolista);
+        var carlosG = repo.ObtenerFutbolista(idFutbolista);
 
-        Assert.NotNull(resultado);
-        Assert.Equal(idFutbolista, resultado.IdFutbolista);
-        Assert.NotNull(resultado.Nombre);
-        Assert.Empty(resultado.Puntuaciones);
+        Assert.NotNull(carlosG);
+        Assert.Equal(idFutbolista, carlosG.IdFutbolista);
+        Assert.NotNull(carlosG.Nombre);
+        Assert.Single(carlosG.Puntuaciones);
     }
 
     [Fact]
@@ -140,13 +147,13 @@ public class RepoFutbolistaTest : RepoTest
     {
         int idFutbolista = 1; // debe existir en tu BD con puntuaciones cargadas
 
-        var resultado = repo.ObtenerFutbolista(idFutbolista);
+        var juanP = repo.ObtenerFutbolista(idFutbolista);
 
-        Assert.NotNull(resultado);
-        Assert.Equal(idFutbolista, resultado.IdFutbolista);
-        Assert.NotNull(resultado.Nombre);
-        Assert.NotEmpty(resultado.Puntuaciones);
-        Assert.All(resultado.Puntuaciones, p =>
+        Assert.NotNull(juanP);
+        Assert.Equal(idFutbolista, juanP.IdFutbolista);
+        Assert.NotNull(juanP.Nombre);
+        Assert.NotEmpty(juanP.Puntuaciones);
+        Assert.All(juanP.Puntuaciones, p =>
 
         {
             Assert.True(p.Puntaje >= 0, "El puntaje debe ser un valor positivo.");

@@ -38,7 +38,7 @@ public class RepoEquipo : Repo, IRepoEquipo
     {
         try
         {
-            var sql = "SELECT IdEquipo, Nombre, Ciudad, FechaFundacion FROM Equipo";
+            var sql = "SELECT IdEquipo, Nombre FROM Equipo";
 
             var equipos = Conexion.Query<Equipo>(sql);
             return equipos;

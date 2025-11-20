@@ -2,10 +2,8 @@ using System.Data;
 using GranDT.Core.Futbol;
 using Dapper;
 using GranDT.Core.Repos;
-using System.Reflection.Metadata.Ecma335;
 
 namespace GranDT.ReposDapper;
-
 public class RepoFutbolista : Repo, IRepoFutbolista
 {
     public RepoFutbolista(IDbConnection conexion) : base(conexion)
@@ -19,8 +17,8 @@ public class RepoFutbolista : Repo, IRepoFutbolista
         parametros.Add("@p_Nombre", futbolista.Nombre);
         parametros.Add("@p_Apodo", futbolista.Apodo);
         parametros.Add("@p_Nacimiento", futbolista.Nacimiento);
-        parametros.Add("@p_idEquipo", futbolista.Equipo);
-        parametros.Add("@p_idTipoDeJugador", futbolista.TipoDeJugador);
+        parametros.Add("@p_idEquipo", futbolista.Equipo.idEquipo);
+        parametros.Add("@p_idTipoDeJugador", futbolista.TipoDeJugador.IdTipoDeJugador);
         parametros.Add("@p_Cotizacion", futbolista.Cotizacion);
         parametros.Add("@p_Creado_por", futbolista.Creado_por);
 
@@ -58,7 +56,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
         FROM    Futbolistas f
         WHERE   f.idTipoDeJugador = @idTipo;
 
-        SELECT  e.idEquipo, e.Nombre, e.Cantidad
+        SELECT  e.idEquipo, e.Nombre
         FROM    Equipo e
         JOIN    Futbolistas f ON f.idEquipo = e.idEquipo
         WHERE   f.idTipoDeJugador = @idTipo;
@@ -92,7 +90,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
                 );
 
                 var puntajeFutbоlista = puntuaciones
-                .Where(p => p.idFutbolista == dto.idFutbolista);
+                .Where(p => p.idFutbolista == dto.IdFutbolista);
 
                 return dto.Futbolista(equipo, tipo, puntuaciones);
             });
@@ -107,7 +105,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
             FROM    Futbolistas
             WHERE   idFutbolista = @id;
 
-        SELECT  e.idEquipo, e.nombre, e.cantidad
+        SELECT  e.idEquipo, e.nombre
         FROM    Futbolistas f
         JOIN    Equipo e ON f.idEquipo = e.idEquipo
         WHERE   f.idFutbolista = @id;
@@ -125,22 +123,41 @@ public class RepoFutbolista : Repo, IRepoFutbolista
     {
         using (var multi = Conexion.QueryMultiple(_queryFutbolista, new { id = idFutbolista }))
         {
-            var futbolista = multi.ReadSingleOrDefault<DtoDetalleFutbolista?>();
+            var futbolista = multi.ReadSingleOrDefault<DtoDetalleFutbolista>();
             if (futbolista is not null)
             {
-                var puntuaciones = multi.Read<Puntuacion>();
-                var tipoDeJugador = multi.ReadSingle<TipoDeJugador>();
                 var equipo = multi.ReadSingle<Equipo>();
+                var tipoDeJugador = multi.ReadSingle<TipoDeJugador>();
+                var puntuaciones = multi.Read<Puntuacion>();
 
-                return futbolista.Value.Futbolista(equipo, tipoDeJugador, puntuaciones);
+                return futbolista.Futbolista(equipo, tipoDeJugador, puntuaciones);
             }
         }
         return null;
     }
 
-    record struct DtoDetalleFutbolista(int idFutbolista, string nombre, string? apodo,
-                                        DateTime nacimiento, decimal cotizacion, string creado_por)
+    internal class DtoDetalleFutbolista
     {
+        private readonly int idFutbolista;
+        private readonly string nombre;
+        private readonly string? apodo;
+        private readonly DateTime nacimiento;
+        private readonly decimal cotizacion;
+        private readonly string creado_por;
+
+        public DtoDetalleFutbolista(int idFutbolista, int idEquipo, int idTipoDeJugador, string nombre, string? apodo,
+                                            DateTime nacimiento, decimal cotizacion, string creado_por)
+        {
+            this.idFutbolista = idFutbolista;
+            this.nombre = nombre;
+            this.apodo = apodo;
+            this.nacimiento = nacimiento;
+            this.cotizacion = cotizacion;
+            this.creado_por = creado_por;
+        }
+
+        public int IdFutbolista => idFutbolista;
+
         public Futbolista Futbolista(Equipo equipo, TipoDeJugador tipo,
                                     IEnumerable<Puntuacion> puntuaciones)
             => new(nombre, apodo, nacimiento, equipo, tipo, puntuaciones,

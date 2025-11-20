@@ -22,8 +22,7 @@ USE `5to_rosita_fresita` ;
 -- Table `Equipo`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Equipo` (
-  `idEquipo` INT NOT NULL,
-  `Cantidad` TINYINT NOT NULL,
+  `idEquipo` INT NOT NULL AUTO_INCREMENT,
   `Nombre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idEquipo`),
   UNIQUE INDEX `Nombre_UNIQUE` (`Nombre` ASC) VISIBLE)
@@ -49,7 +48,7 @@ COLLATE = utf8mb4_0900_as_ci;
 -- Table `Futbolistas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Futbolistas` (
-  `idFutbolista` INT NOT NULL,
+  `idFutbolista` INT NOT NULL AUTO_INCREMENT,
   `idEquipo` INT NOT NULL,
   `idTipoDeJugador` INT NOT NULL,
   `Nombre` VARCHAR(45) NOT NULL,
@@ -117,7 +116,7 @@ COLLATE = utf8mb4_0900_as_ci;
 -- Table `Puntuacion`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Puntuacion` (
-  `Fecha` TINYINT NOT NULL,
+  `Fecha` TINYINT UNSIGNED NOT NULL,
   `idFutbolista` INT NOT NULL,
   `Puntaje` FLOAT NOT NULL,
   `Cargado_por` VARCHAR(45) NULL,

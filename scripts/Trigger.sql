@@ -28,7 +28,7 @@ BEGIN
                 AND idPlantilla = NEW.idPlantilla
     )) THEN
         SET mensaje = CONCAT( 'Error: El futbolista con id ', NEW.idFutbolista,
-                              ' ya figura como SUPLENTE en la plantilla ', NEW.idPlantilla, '.');
+                            ' ya figura como SUPLENTE en la plantilla ', NEW.idPlantilla, '.');
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = mensaje;
     END IF;
