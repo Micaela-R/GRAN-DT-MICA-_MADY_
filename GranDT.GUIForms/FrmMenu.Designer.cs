@@ -50,12 +50,13 @@
             // button3
             // 
             button3.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(464, 188);
+            button3.Location = new Point(463, 188);
             button3.Name = "button3";
             button3.Size = new Size(108, 44);
             button3.TabIndex = 3;
             button3.Text = "Plantillas";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
