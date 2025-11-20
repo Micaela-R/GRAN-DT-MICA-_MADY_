@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GRAN_DT_MICA__MADY_
 {
-    public partial class Form11 : Form
+    public partial class FrmEquipos : Form
     {
-        public Form11()
+        public FrmEquipos()
         {
             InitializeComponent();
         }
@@ -20,6 +20,15 @@ namespace GRAN_DT_MICA__MADY_
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var menu = new FrmMenu();
+
+            // Mostrar el menú y ocultar el actual (va al menu)
+            menu.Show();
+            this.Hide();
         }
     }
 }

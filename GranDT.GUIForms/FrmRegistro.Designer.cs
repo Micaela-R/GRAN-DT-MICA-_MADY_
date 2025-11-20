@@ -54,6 +54,7 @@ namespace GRAN_DT_MICA__MADY_
             btnAceptar = new Button();
             label2 = new Label();
             dtpFecha_de_Nacimiento = new DateTimePicker();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -291,6 +292,17 @@ namespace GRAN_DT_MICA__MADY_
             dtpFecha_de_Nacimiento.Size = new Size(261, 23);
             dtpFecha_de_Nacimiento.TabIndex = 32;
             // 
+            // button1
+            // 
+            button1.ForeColor = SystemColors.Highlight;
+            button1.Location = new Point(34, 396);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 33;
+            button1.Text = "Regresar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FrmRegistro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -298,6 +310,7 @@ namespace GRAN_DT_MICA__MADY_
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(750, 450);
+            Controls.Add(button1);
             Controls.Add(dtpFecha_de_Nacimiento);
             Controls.Add(label2);
             Controls.Add(btnAceptar);
@@ -355,5 +368,6 @@ namespace GRAN_DT_MICA__MADY_
         private Button btnAceptar;
         private Label label2;
         private DateTimePicker dtpFecha_de_Nacimiento;
+        private Button button1;
     }
 }

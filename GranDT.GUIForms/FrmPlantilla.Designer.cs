@@ -51,6 +51,7 @@
             comboBox9 = new ComboBox();
             comboBox10 = new ComboBox();
             comboBox11 = new ComboBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -291,6 +292,17 @@
             comboBox11.TabIndex = 34;
             comboBox11.Text = "EXTREMO D";
             // 
+            // button1
+            // 
+            button1.ForeColor = SystemColors.Highlight;
+            button1.Location = new Point(16, 417);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 35;
+            button1.Text = "Regresar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FrmPlantilla
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -298,6 +310,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(710, 450);
+            Controls.Add(button1);
             Controls.Add(comboBox11);
             Controls.Add(comboBox10);
             Controls.Add(comboBox9);
@@ -359,5 +372,6 @@
         private ComboBox comboBox9;
         private ComboBox comboBox10;
         private ComboBox comboBox11;
+        private Button button1;
     }
 }
