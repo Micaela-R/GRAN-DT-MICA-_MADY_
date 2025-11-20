@@ -54,7 +54,6 @@
             label1.Size = new Size(119, 37);
             label1.TabIndex = 0;
             label1.Text = "Equipos";
-            label1.Click += label1_Click;
             // 
             // button1
             // 
@@ -74,7 +73,6 @@
             button12.TabIndex = 12;
             button12.Text = "Argentina";
             button12.UseVisualStyleBackColor = true;
-            button12.Click += button12_Click;
             // 
             // button13
             // 
