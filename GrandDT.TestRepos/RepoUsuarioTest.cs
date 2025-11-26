@@ -78,12 +78,12 @@ public class RepoUsuarioTest : RepoTest
         Assert.False(string.IsNullOrEmpty(plantilla.Nombre), "El nombre de la plantilla no debe ser vacío.");
         Assert.True(plantilla.IdUsuario > 0, "La plantilla debe pertenecer a un usuario válido.");
 
-        Assert.NotNull(plantilla.Titulares);
+        Assert.NotNull(plantilla.Titular);
         Assert.NotNull(plantilla.Suplentes);
 
-        if (plantilla.Titulares.Any())
+        if (plantilla.Titular.Any())
             {
-                var titular = plantilla.Titulares.First();
+                var titular = plantilla.Titular.First();
                 Assert.NotEqual(0, titular.IdFutbolista);
                 Assert.False(string.IsNullOrEmpty(titular.Nombre));
                 Assert.NotNull(titular.Equipo);

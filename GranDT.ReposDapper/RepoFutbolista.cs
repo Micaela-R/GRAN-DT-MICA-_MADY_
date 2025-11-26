@@ -17,6 +17,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
         parametros.Add("@p_Nombre", futbolista.Nombre);
         parametros.Add("@p_Apodo", futbolista.Apodo);
         parametros.Add("@p_Nacimiento", futbolista.Nacimiento);
+        parametros.Add("p_idFutbolista", futbolista.IdFutbolista);
         parametros.Add("@p_idEquipo", futbolista.Equipo.idEquipo);
         parametros.Add("@p_idTipoDeJugador", futbolista.TipoDeJugador.IdTipoDeJugador);
         parametros.Add("@p_Cotizacion", futbolista.Cotizacion);

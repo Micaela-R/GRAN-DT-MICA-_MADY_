@@ -2,10 +2,6 @@ namespace GranDT.Core;
 
 public class Usuario
 {
-    public Usuario()
-    {
-    }
-
     public Usuario(string email, string nombre, string apellido, DateTime nacimiento, int idUsuario = 0)
     {
         IdUsuario = idUsuario;

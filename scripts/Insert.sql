@@ -139,7 +139,7 @@ VALUES
     (1, 1),
     (2, 2);
 
-SELECT 'Agregando Titulares' AS Estado;
+SELECT 'Agregando Titular' AS Estado;
 
 INSERT INTO `Titular` (
     `idFutbolista`,

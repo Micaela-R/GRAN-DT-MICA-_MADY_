@@ -80,7 +80,7 @@ public class RepoUsuario : Repo, IRepoUsuario
         WHERE   idPlantilla = @id;
         
         SELECT  *
-        FROM    PlantillaTitulares
+        FROM    Titular
         WHERE   t.idPlantilla = @id;
 
 
@@ -102,8 +102,8 @@ public class RepoUsuario : Repo, IRepoUsuario
             if (dtoPlantilla is null)
                 return null;
 
-            // 2 Leemos los titulares
-            IEnumerable<Futbolista> titulares = multi.Read<DtoDetalleFutbolista>()
+            // 2 Leemos los titular
+            IEnumerable<Futbolista> titular = multi.Read<DtoDetalleFutbolista>()
                             .Select(dtoFutbolista => dtoFutbolista.Futbolista());
 
             // 3 Leemos los suplentes
@@ -112,7 +112,7 @@ public class RepoUsuario : Repo, IRepoUsuario
                             .ToList();
 
             // 4 Construimos la plantilla completa
-            return dtoPlantilla.Value.Plantilla(titulares, suplentes);
+            return dtoPlantilla.Value.Plantilla(titular, suplentes);
         }
     }
 
@@ -124,11 +124,11 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     record struct DtoPlantillaSuperCargada(int idPlantilla, string nombre, int idUsuario)
     {
-        public Plantilla Plantilla(IEnumerable<Futbolista> titulares,
+        public Plantilla Plantilla(IEnumerable<Futbolista> titular,
                                 IEnumerable<Futbolista> suplentes)
             => new(idUsuario, nombre, idPlantilla)
             {
-                Titulares = titulares,
+                Titular = titular,
                 Suplentes = suplentes
             };
     }

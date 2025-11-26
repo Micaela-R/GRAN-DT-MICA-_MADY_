@@ -13,11 +13,11 @@ public class RepoEquipo : Repo, IRepoEquipo
 
     public void AltaEquipo(Equipo equipo)
     {
-        var sql = @"
-        INSERT INTO Equipo (Nombre)
-        VALUES (@Nombre);
-        SELECT last_insert_id();
-        ";
+
+    var sql = @"
+    INSERT INTO Equipo (Nombre) 
+    VALUES (@Nombre); 
+    SELECT last_insert_id(); ";
 
         try
         {

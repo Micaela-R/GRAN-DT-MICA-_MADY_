@@ -23,8 +23,8 @@ public class RepoFutbolistaTest : RepoTest
         var puntuaciones = new List<Puntuacion>
 
             {
-                new Puntuacion { Fecha = new DateTime(2024, 3, 1), Puntaje = 8 },
-                new Puntuacion { Fecha = new DateTime(2024, 3, 8), Puntaje = 9 }
+                new Puntuacion { Fecha = 2, Puntaje = 8 },
+                new Puntuacion { Fecha = 1, Puntaje = 9 }
             };
 
         var Messi = new Futbolista("Lionel", "Messi", new DateTime(1987, 6, 24),
@@ -157,7 +157,7 @@ public class RepoFutbolistaTest : RepoTest
 
         {
             Assert.True(p.Puntaje >= 0, "El puntaje debe ser un valor positivo.");
-            Assert.NotEqual(default(DateTime), p.Fecha);
+            Assert.NotEqual(default, p.Fecha);
         });
     }
 

@@ -1,4 +1,4 @@
-USE `5to_rosita_fresita`;
+USE `5to_rosita_fresita` ;
 
 -- Procedimiento para dar de alta al usuario en base a su email y contrasena
 
@@ -39,3 +39,5 @@ BEGIN
    AND Contrasena = SHA2(p_Contrasena, 256)
    LIMIT 1;
 END $$
+
+-- alta futbolista 
