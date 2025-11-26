@@ -193,6 +193,7 @@
             // 
             comboBox1.FlatStyle = FlatStyle.Popup;
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Emiliano Martínez (Argentina)", "Hugo Lloris (Francia)", "Manuel Neuer (Alemania)", "Keylor Navas (Costa Rica)", "Alisson Becker (Brasil)" });
             comboBox1.Location = new Point(606, 220);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(92, 23);
