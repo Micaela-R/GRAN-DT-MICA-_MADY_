@@ -80,18 +80,16 @@ public class RepoUsuario : Repo, IRepoUsuario
         WHERE   idPlantilla = @id;
         
         SELECT  *
-        FROM    Titular
-        WHERE   t.idPlantilla = @id;
+        FROM    PlantillaTitular
+        WHERE   idPlantilla = @id;
 
 
-        SELECT  f.idFutbolista, f.Nombre, f.Apodo, f.Nacimiento, f.Cotizacion, f.Creado_por,
-                e.idEquipo, e.Nombre AS NombreEquipo, e.Cantidad,
-                tj.idTipoDeJugador, tj.Tipo
-        FROM    Suplente s
-        JOIN    Futbolistas f ON s.idFutbolista = f.idFutbolista
-        JOIN    Equipo e ON f.idEquipo = e.idEquipo
-        JOIN    TipoDeJugador tj ON f.idTipoDeJugador = tj.idTipoDeJugador
-        WHERE   s.idPlantilla = @id;";
+        SELECT  *
+        FROM    Suplente 
+        JOIN    Futbolistas USING (idFutbolista)
+        JOIN    Equipo USING (idEquipo)
+        JOIN    TipoDeJugador USING (idTipoDeJugador)
+        WHERE   idPlantilla = @id;";
 
     public Plantilla? ObtenerPlantillaSuperCargada(int idPlantilla)
     {

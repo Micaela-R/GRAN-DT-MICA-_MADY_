@@ -41,3 +41,25 @@ BEGIN
 END $$
 
 -- alta futbolista 
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS alta_futbolista $$
+CREATE PROCEDURE alta_futbolista (
+   IN p_idEquipo INT,
+   IN p_idTipoDeJugador INT,
+   IN p_Nombre VARCHAR(45),
+   IN p_Apodo VARCHAR(45),
+   IN p_Nacimiento DATE,
+   IN p_Cotizacion DECIMAL(8,2),
+   IN p_Creado_por VARCHAR(45),
+   OUT idFutbolista INT
+)
+BEGIN
+   INSERT INTO Futbolistas 
+      (idEquipo, idTipoDeJugador, Nombre, Apodo, Nacimiento, Cotizacion, Creado_por)
+   VALUES 
+      (p_idEquipo, p_idTipoDeJugador, p_Nombre, p_Apodo, p_Nacimiento, p_Cotizacion, p_Creado_por);
+
+   SET idFutbolista = LAST_INSERT_ID();
+END $$
