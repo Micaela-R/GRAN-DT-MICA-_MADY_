@@ -57,9 +57,30 @@ CREATE PROCEDURE alta_futbolista (
 )
 BEGIN
    INSERT INTO Futbolistas 
-      (idEquipo, idTipoDeJugador, Nombre, Apodo, Nacimiento, Cotizacion, Creado_por)
+         (idEquipo, idTipoDeJugador, Nombre, Apodo, Nacimiento, Cotizacion, Creado_por)
    VALUES 
-      (p_idEquipo, p_idTipoDeJugador, p_Nombre, p_Apodo, p_Nacimiento, p_Cotizacion, p_Creado_por);
+         (p_idEquipo, p_idTipoDeJugador, p_Nombre, p_Apodo, p_Nacimiento, p_Cotizacion, p_Creado_por);
 
    SET idFutbolista = LAST_INSERT_ID();
+END $$
+
+-- alta_Administrador
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS alta_administrador $$
+CREATE PROCEDURE alta_administrador (
+   IN p_Email VARCHAR(45),
+   IN p_Contrasena VARCHAR(255),
+   IN p_Nombre VARCHAR(45),
+   IN p_Apellido VARCHAR(45),
+   IN p_Nacimiento DATE,
+   IN p_Tipo VARCHAR(20),
+   OUT idUsuario INT
+)
+BEGIN
+   -- Insertar usuario
+   CALL alta_usuario (p_Email, p_Contrasena, p_Nombre, p_Apellido, p_Nacimiento, p_Tipo, idUsuario);
+   INSERT INTO Administrador value (idUsuario);
+
 END $$

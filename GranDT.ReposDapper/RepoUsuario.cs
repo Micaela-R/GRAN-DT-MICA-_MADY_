@@ -163,6 +163,5 @@ public class RepoUsuario : Repo, IRepoUsuario
                     equipo, tipoFutbolista, [], cotizacion,
                     creado_por, IdFutbolista);
         }
-
     }
 }

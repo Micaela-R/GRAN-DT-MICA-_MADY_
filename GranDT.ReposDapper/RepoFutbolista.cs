@@ -36,7 +36,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
     // Obtener todos los futbolistas
     public IEnumerable<Futbolista> ObtenerFutbolistas()
     {
-        var sql = "SELECT idFutbolista, Nombre, Apodo, Nacimiento, idEquipo, idTipoDeJugador, Cotizacion, Creado_por FROM Futbolistas";
+        var sql = "SELECT idFutbolista, Nombre, Apodo, Nacimiento,idEquipo, idTipoDeJugador, Cotizacion, Creado_por FROM Futbolistas";
         return Conexion.Query<Futbolista>(sql);
     }
 
@@ -59,7 +59,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
 
         SELECT  e.idEquipo, e.Nombre
         FROM    Equipo e
-        JOIN    Futbolistas f ON f.idEquipo = e.idEquipo
+        JOIN    Futbolistas USING (idEquipo)
         WHERE   f.idTipoDeJugador = @idTipo;
 
         SELECT  tj.idTipoDeJugador, tj.Tipo
@@ -68,7 +68,7 @@ public class RepoFutbolista : Repo, IRepoFutbolista
 
         SELECT  p.*
         FROM    Puntuacion p
-        JOIN    Futbolistas f ON p.idFutbolista = f.idFutbolista
+        JOIN    Futbolistas USING (idFutbolista)
         WHERE   f.idTipoDeJugador = @idTipo;";
 
         using (var multi = Conexion.QueryMultiple(sql, new { idTipo = idTipoDeJugador }))

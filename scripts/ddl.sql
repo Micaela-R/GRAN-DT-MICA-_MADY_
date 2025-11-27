@@ -137,14 +137,7 @@ CREATE TABLE IF NOT EXISTS `Titular` (
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Administrador` (
     `idUsuario` INT NOT NULL,
-    `Email` VARCHAR(45) NOT NULL,
-    `Nombre` VARCHAR(45) NOT NULL,
-    `Apellido` VARCHAR(45) NOT NULL,
-    `Nacimiento` DATE NOT NULL,
-    `Contrasena` CHAR(64) NOT NULL,
-    `Rol` VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`idUsuario`, `Email`),
-    UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE,
+    PRIMARY KEY (`idUsuario`),
     CONSTRAINT `fk_Administrador_Usuario1` FOREIGN KEY (`idUsuario`) REFERENCES `Usuario` (`idUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB;
 
