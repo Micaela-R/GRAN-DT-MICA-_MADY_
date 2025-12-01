@@ -1,5 +1,5 @@
 -- Active: 1756318445900@@127.0.0.1@3306@5to_rosita_fresita
-USE `5to_rosita_fresita`;
+USE `5to_rosita_fresita` ;
 
 DELIMITER $$
 
@@ -28,7 +28,7 @@ BEGIN
                 AND idPlantilla = NEW.idPlantilla
     )) THEN
         SET mensaje = CONCAT( 'Error: El futbolista con id ', NEW.idFutbolista,
-                              ' ya figura como SUPLENTE en la plantilla ', NEW.idPlantilla, '.');
+                            ' ya figura como SUPLENTE en la plantilla ', NEW.idPlantilla, '.');
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = mensaje;
     END IF;

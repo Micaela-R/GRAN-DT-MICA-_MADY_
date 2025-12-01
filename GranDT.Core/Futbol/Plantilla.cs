@@ -16,7 +16,7 @@ public class Plantilla
     public string Nombre { get; set; }
 
     public int IdUsuario { get; set; }
-    public IEnumerable<Futbolista> Titulares { get; set; } = [];
+    public IEnumerable<Futbolista> Titular { get; set; } = [];
 
     public IEnumerable<Futbolista> Suplentes { get; set; } = [];
 }

@@ -53,22 +53,14 @@ public class RepoUsuarioTest : RepoTest
 
     public void ObtenerPlantillasSinDetalle_OK()
     {
-        int idUsuario = 3; //Debe existir en tu base de datos pero con una plantilla sin detalle asociada.
+        int idPlantilla = 2; 
 
-        var plantillas = repo.ObtenerPlantillasSinDetalle(idUsuario);
+        var plantilla = repo.ObtenerPlantillasSinDetalle(idPlantilla);
 
-        Assert.NotNull(plantillas);
-        Assert.True(plantillas.Any(),
-            "No se encontraron plantillas para el usuario, verifica que existan en la tabla Plantillas.");
+        Assert.NotNull(plantilla);
 
-        var primera = plantillas.First();
-        Assert.Equal(idUsuario, primera.IdUsuario);
-
-        // Si tu clase Plantilla tiene una colección de detalles:
-        // Assert.Empty(primera.Detalles);
-
-        Assert.False(string.IsNullOrEmpty(primera.Nombre),
-            "El campo Nombre no debe estar vacío.");
+        Assert.Equal(idPlantilla, plantilla.IdPlantilla);
+        Assert.Equal("Cancha B", plantilla.Nombre); ;
     }
 
     [Fact]
@@ -86,12 +78,12 @@ public class RepoUsuarioTest : RepoTest
         Assert.False(string.IsNullOrEmpty(plantilla.Nombre), "El nombre de la plantilla no debe ser vacío.");
         Assert.True(plantilla.IdUsuario > 0, "La plantilla debe pertenecer a un usuario válido.");
 
-        Assert.NotNull(plantilla.Titulares);
+        Assert.NotNull(plantilla.Titular);
         Assert.NotNull(plantilla.Suplentes);
 
-        if (plantilla.Titulares.Any())
+        if (plantilla.Titular.Any())
             {
-                var titular = plantilla.Titulares.First();
+                var titular = plantilla.Titular.First();
                 Assert.NotEqual(0, titular.IdFutbolista);
                 Assert.False(string.IsNullOrEmpty(titular.Nombre));
                 Assert.NotNull(titular.Equipo);

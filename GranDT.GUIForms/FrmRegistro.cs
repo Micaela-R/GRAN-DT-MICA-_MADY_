@@ -24,7 +24,14 @@ public partial class FrmRegistro : Form
 
     private void btnAceptar_Click(object sender, EventArgs e)
     {
+
         CrearUsuario();
+
+        var menu = new FrmMenu();
+
+        // Mostrar el menú y ocultar el actual (va al menu)
+        menu.Show();
+        this.Hide();
     }
     private void CrearUsuario()
     {
@@ -39,5 +46,13 @@ public partial class FrmRegistro : Form
         };
         repo.AltaUsuario(usuario, pass);
         MessageBox.Show("Usuario Creado");
+    }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+        var menu = new FrmMenuUsuario();
+
+        menu.Show();
+        this.Hide();
     }
 }

@@ -9,7 +9,7 @@ public class Puntuacion
 
     public float Puntaje { get; set; }
 
-    public DateTime Fecha { get; set; }
+    public byte Fecha { get; set; }
 
-    public string Cargador_por { get; set; } = string.Empty;
+    public string CargadoR_por { get; set; } = string.Empty;
 }

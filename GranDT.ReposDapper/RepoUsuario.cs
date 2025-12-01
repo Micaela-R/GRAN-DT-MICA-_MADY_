@@ -49,7 +49,7 @@ public class RepoUsuario : Repo, IRepoUsuario
 
     //TODO plantillas sin detalle en base al idUsuario
 
-    private static readonly string _queryPlantillasSinDetalle
+    private static readonly string _queryPlantillaSinDetalle
         = @"SELECT  *
         FROM    Plantillas
         WHERE   idUsuario = @idUsuario;";
@@ -80,18 +80,16 @@ public class RepoUsuario : Repo, IRepoUsuario
         WHERE   idPlantilla = @id;
         
         SELECT  *
-        FROM    PlantillaTitulares
-        WHERE   t.idPlantilla = @id;
+        FROM    PlantillaTitular
+        WHERE   idPlantilla = @id;
 
 
-        SELECT  f.idFutbolista, f.Nombre, f.Apodo, f.Nacimiento, f.Cotizacion, f.Creado_por,
-                e.idEquipo, e.Nombre AS NombreEquipo, e.Cantidad,
-                tj.idTipoDeJugador, tj.Tipo
-        FROM    Suplente s
-        JOIN    Futbolistas f ON s.idFutbolista = f.idFutbolista
-        JOIN    Equipo e ON f.idEquipo = e.idEquipo
-        JOIN    TipoDeJugador tj ON f.idTipoDeJugador = tj.idTipoDeJugador
-        WHERE   s.idPlantilla = @id;";
+        SELECT  *
+        FROM    Suplente 
+        JOIN    Futbolistas USING (idFutbolista)
+        JOIN    Equipo USING (idEquipo)
+        JOIN    TipoDeJugador USING (idTipoDeJugador)
+        WHERE   idPlantilla = @id;";
 
     public Plantilla? ObtenerPlantillaSuperCargada(int idPlantilla)
     {
@@ -102,8 +100,8 @@ public class RepoUsuario : Repo, IRepoUsuario
             if (dtoPlantilla is null)
                 return null;
 
-            // 2 Leemos los titulares
-            IEnumerable<Futbolista> titulares = multi.Read<DtoDetalleFutbolista>()
+            // 2 Leemos los titular
+            IEnumerable<Futbolista> titular = multi.Read<DtoDetalleFutbolista>()
                             .Select(dtoFutbolista => dtoFutbolista.Futbolista());
 
             // 3 Leemos los suplentes
@@ -112,17 +110,23 @@ public class RepoUsuario : Repo, IRepoUsuario
                             .ToList();
 
             // 4 Construimos la plantilla completa
-            return dtoPlantilla.Value.Plantilla(titulares, suplentes);
+            return dtoPlantilla.Value.Plantilla(titular, suplentes);
         }
+    }
+
+    Plantilla? IRepoUsuario.ObtenerPlantillasSinDetalle(int idUsuario)
+    {
+        var plantilla = Conexion.QueryFirstOrDefault<Plantilla>(_queryPlantillaSinDetalle, new{ id = idUsuario });
+        return plantilla;;
     }
 
     record struct DtoPlantillaSuperCargada(int idPlantilla, string nombre, int idUsuario)
     {
-        public Plantilla Plantilla(IEnumerable<Futbolista> titulares,
+        public Plantilla Plantilla(IEnumerable<Futbolista> titular,
                                 IEnumerable<Futbolista> suplentes)
             => new(idUsuario, nombre, idPlantilla)
             {
-                Titulares = titulares,
+                Titular = titular,
                 Suplentes = suplentes
             };
     }
@@ -159,6 +163,5 @@ public class RepoUsuario : Repo, IRepoUsuario
                     equipo, tipoFutbolista, [], cotizacion,
                     creado_por, IdFutbolista);
         }
-
     }
 }

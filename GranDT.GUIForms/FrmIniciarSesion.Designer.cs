@@ -36,9 +36,10 @@
             label1 = new Label();
             lblUsuario = new Label();
             lblContraseña = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txbUsuario = new TextBox();
+            txbContraseña = new TextBox();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -60,7 +61,7 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(298, -18);
+            pictureBox2.Location = new Point(314, -18);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(98, 103);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -71,7 +72,7 @@
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(393, -22);
+            pictureBox3.Location = new Point(424, -18);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(96, 107);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -83,7 +84,7 @@
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(143, 115);
+            pictureBox4.Location = new Point(206, 115);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(86, 41);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -96,7 +97,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Tahoma", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(283, 133);
+            label1.Location = new Point(311, 133);
             label1.Name = "label1";
             label1.Size = new Size(150, 23);
             label1.TabIndex = 11;
@@ -110,9 +111,9 @@
             lblUsuario.ForeColor = Color.White;
             lblUsuario.Location = new Point(206, 199);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(86, 25);
+            lblUsuario.Size = new Size(70, 25);
             lblUsuario.TabIndex = 12;
-            lblUsuario.Text = "Usuario: ";
+            lblUsuario.Text = "Gmail: ";
             // 
             // lblContraseña
             // 
@@ -126,19 +127,19 @@
             lblContraseña.TabIndex = 13;
             lblContraseña.Text = "Contraseña: ";
             // 
-            // textBox1
+            // txbUsuario
             // 
-            textBox1.Location = new Point(298, 201);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(182, 23);
-            textBox1.TabIndex = 14;
+            txbUsuario.Location = new Point(298, 201);
+            txbUsuario.Name = "txbUsuario";
+            txbUsuario.Size = new Size(182, 23);
+            txbUsuario.TabIndex = 14;
             // 
-            // textBox2
+            // txbContraseña
             // 
-            textBox2.Location = new Point(298, 252);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(182, 23);
-            textBox2.TabIndex = 15;
+            txbContraseña.Location = new Point(298, 252);
+            txbContraseña.Name = "txbContraseña";
+            txbContraseña.Size = new Size(182, 23);
+            txbContraseña.TabIndex = 15;
             // 
             // button1
             // 
@@ -152,6 +153,18 @@
             button1.TabIndex = 16;
             button1.Text = "Ingresar";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.ForeColor = SystemColors.Highlight;
+            button2.Location = new Point(12, 400);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 17;
+            button2.Text = "Regresar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // FrmIniciarSesion
             // 
@@ -160,9 +173,10 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(756, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txbContraseña);
+            Controls.Add(txbUsuario);
             Controls.Add(lblContraseña);
             Controls.Add(lblUsuario);
             Controls.Add(label1);
@@ -189,8 +203,9 @@
         private Label label1;
         private Label lblUsuario;
         private Label lblContraseña;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txbUsuario;
+        private TextBox txbContraseña;
         private Button button1;
+        private Button button2;
     }
 }

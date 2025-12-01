@@ -1,4 +1,5 @@
-USE `5to_rosita_fresita`;
+USE `5to_rosita_fresita` ;
+
 -- Procedimiento para dar de alta al usuario en base a su email y contrasena
 
 DELIMITER $$
@@ -37,4 +38,49 @@ BEGIN
    WHERE Email = p_Email
    AND Contrasena = SHA2(p_Contrasena, 256)
    LIMIT 1;
+END $$
+
+-- alta futbolista 
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS alta_futbolista $$
+CREATE PROCEDURE alta_futbolista (
+   IN p_idEquipo INT,
+   IN p_idTipoDeJugador INT,
+   IN p_Nombre VARCHAR(45),
+   IN p_Apodo VARCHAR(45),
+   IN p_Nacimiento DATE,
+   IN p_Cotizacion DECIMAL(8,2),
+   IN p_Creado_por VARCHAR(45),
+   OUT idFutbolista INT
+)
+BEGIN
+   INSERT INTO Futbolistas 
+         (idEquipo, idTipoDeJugador, Nombre, Apodo, Nacimiento, Cotizacion, Creado_por)
+   VALUES 
+         (p_idEquipo, p_idTipoDeJugador, p_Nombre, p_Apodo, p_Nacimiento, p_Cotizacion, p_Creado_por);
+
+   SET idFutbolista = LAST_INSERT_ID();
+END $$
+
+-- alta_Administrador
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS alta_administrador $$
+CREATE PROCEDURE alta_administrador (
+   IN p_Email VARCHAR(45),
+   IN p_Contrasena VARCHAR(255),
+   IN p_Nombre VARCHAR(45),
+   IN p_Apellido VARCHAR(45),
+   IN p_Nacimiento DATE,
+   IN p_Tipo VARCHAR(20),
+   OUT idUsuario INT
+)
+BEGIN
+   -- Insertar usuario
+   CALL alta_usuario (p_Email, p_Contrasena, p_Nombre, p_Apellido, p_Nacimiento, p_Tipo, idUsuario);
+   INSERT INTO Administrador value (idUsuario);
+
 END $$

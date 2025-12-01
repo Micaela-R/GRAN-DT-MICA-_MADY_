@@ -11,13 +11,20 @@ namespace GRAN_DT_MICA__MADY_
 
         public FrmIniciarSesion()
         {
+<<<<<<< HEAD
+=======
+            InitializeComponent();
+>>>>>>> d24c750522a2d3c3e9d5f8aab77d9fe8192dbdc2
 
             var cadena = "Server=localhost;User ID=root;Password=root;Database=5to_rosita_fresita;";
             var conexion = new MySqlConnection(cadena);
             repoUsuario = new RepoUsuario(conexion);
+<<<<<<< HEAD
 
             InitializeComponent();
 
+=======
+>>>>>>> d24c750522a2d3c3e9d5f8aab77d9fe8192dbdc2
         }
 
         private void CargarListBox()
@@ -31,6 +38,7 @@ namespace GRAN_DT_MICA__MADY_
             lstUsuario.ValueMember = nameof(Usuario.IdCategoria);
         }
 
+<<<<<<< HEAD
         private void Carga(object sender, EventArgs e) => CargarListBox();
 
         private void CrearUsuario()
@@ -67,6 +75,25 @@ namespace GRAN_DT_MICA__MADY_
         }
 
         private void btnCrear_Click(object sender, EventArgs e) => CrearUsuario();
+=======
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var menu = new FrmMenu();
+
+            // Mostrar el menú y ocultar el actual (va al menu)
+            menu.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            var menu = new FrmMenuUsuario();
+
+            menu.Show();
+            this.Hide();
+        }
+>>>>>>> d24c750522a2d3c3e9d5f8aab77d9fe8192dbdc2
     }
 
 

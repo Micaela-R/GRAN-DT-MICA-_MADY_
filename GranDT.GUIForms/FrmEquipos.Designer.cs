@@ -1,6 +1,6 @@
 ﻿namespace GRAN_DT_MICA__MADY_
 {
-    partial class Form11
+    partial class FrmEquipos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form11));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEquipos));
             listBox1 = new ListBox();
             label1 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // listBox1
@@ -56,16 +57,28 @@
             label1.TabIndex = 1;
             label1.Text = "EQUIPOS";
             // 
-            // Form11
+            // button1
+            // 
+            button1.ForeColor = SystemColors.Highlight;
+            button1.Location = new Point(10, 448);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Regresar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // FrmEquipos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(957, 574);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(listBox1);
-            Name = "Form11";
+            Name = "FrmEquipos";
             Text = "Form11";
             ResumeLayout(false);
             PerformLayout();
@@ -75,5 +88,6 @@
 
         private ListBox listBox1;
         private Label label1;
+        private Button button1;
     }
 }
