@@ -27,10 +27,10 @@ public partial class FrmRegistro : Form
 
         CrearUsuario();
 
-        var menu = new FrmMenu();
+        var IniciarSesion = new FrmIniciarSesion();
 
-        // Mostrar el menú y ocultar el actual (va al menu)
-        menu.Show();
+
+        IniciarSesion.Show();
         this.Hide();
     }
     private void CrearUsuario()

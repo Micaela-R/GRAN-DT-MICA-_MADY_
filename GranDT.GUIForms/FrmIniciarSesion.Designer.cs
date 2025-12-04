@@ -78,7 +78,6 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 9;
             pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
             // 
             // pictureBox4
             // 
@@ -143,17 +142,17 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.LightSteelBlue;
+            button1.BackColor = Color.SteelBlue;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Sitka Small", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Segoe UI Emoji", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(283, 329);
+            button1.Location = new Point(298, 318);
             button1.Name = "button1";
-            button1.Size = new Size(129, 34);
+            button1.Size = new Size(129, 42);
             button1.TabIndex = 16;
             button1.Text = "Ingresar";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            button1.Click += button1_Click_1;
             // 
             // button2
             // 
@@ -164,7 +163,6 @@
             button2.TabIndex = 17;
             button2.Text = "Regresar";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // FrmIniciarSesion
             // 

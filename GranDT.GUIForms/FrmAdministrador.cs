@@ -10,23 +10,19 @@ using System.Windows.Forms;
 
 namespace GRAN_DT_MICA__MADY_
 {
-    public partial class FrmBienvenida : Form
+    public partial class FrmAdministrador : Form
     {
-        public FrmBienvenida()
+        public FrmAdministrador()
         {
             InitializeComponent();
-
         }
-        private void btnContinuar_Click(object sender, EventArgs e)
+
+        private void label2_Click(object sender, EventArgs e)
         {
-            var menu = new FrmMenuUsuario();
 
-            // Mostrar el menú y ocultar el actual
-            menu.Show();
-            this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

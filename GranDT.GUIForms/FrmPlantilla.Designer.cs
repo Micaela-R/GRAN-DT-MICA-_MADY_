@@ -69,9 +69,9 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(302, 276);
+            pictureBox1.Location = new Point(328, 281);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.Size = new Size(52, 50);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 11;
             pictureBox1.TabStop = false;
@@ -80,9 +80,9 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(87, 321);
+            pictureBox2.Location = new Point(111, 321);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.Size = new Size(55, 50);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
@@ -91,9 +91,9 @@
             // 
             pictureBox4.BackColor = Color.Transparent;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(302, 58);
+            pictureBox4.Location = new Point(327, 58);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(100, 50);
+            pictureBox4.Size = new Size(53, 50);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 14;
             pictureBox4.TabStop = false;
@@ -102,9 +102,9 @@
             // 
             pictureBox5.BackColor = Color.Transparent;
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(373, 173);
+            pictureBox5.Location = new Point(398, 173);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(100, 50);
+            pictureBox5.Size = new Size(50, 50);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 15;
             pictureBox5.TabStop = false;
@@ -114,9 +114,9 @@
             // 
             pictureBox6.BackColor = Color.Transparent;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(466, 29);
+            pictureBox6.Location = new Point(489, 29);
             pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(100, 50);
+            pictureBox6.Size = new Size(54, 50);
             pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 16;
             pictureBox6.TabStop = false;
@@ -125,9 +125,9 @@
             // 
             pictureBox7.BackColor = Color.Transparent;
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(500, 124);
+            pictureBox7.Location = new Point(529, 124);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(100, 50);
+            pictureBox7.Size = new Size(57, 50);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 17;
             pictureBox7.TabStop = false;
@@ -136,20 +136,21 @@
             // 
             pictureBox8.BackColor = Color.Transparent;
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(598, 164);
+            pictureBox8.Location = new Point(662, 184);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(100, 50);
+            pictureBox8.Size = new Size(54, 48);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 18;
             pictureBox8.TabStop = false;
+            pictureBox8.Click += pictureBox8_Click;
             // 
             // pictureBox9
             // 
             pictureBox9.BackColor = Color.Transparent;
             pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
-            pictureBox9.Location = new Point(500, 229);
+            pictureBox9.Location = new Point(529, 229);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(100, 50);
+            pictureBox9.Size = new Size(54, 50);
             pictureBox9.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox9.TabIndex = 19;
             pictureBox9.TabStop = false;
@@ -159,9 +160,9 @@
             // 
             pictureBox10.BackColor = Color.Transparent;
             pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
-            pictureBox10.Location = new Point(466, 337);
+            pictureBox10.Location = new Point(490, 337);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(100, 50);
+            pictureBox10.Size = new Size(53, 50);
             pictureBox10.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox10.TabIndex = 20;
             pictureBox10.TabStop = false;
@@ -170,9 +171,9 @@
             // 
             pictureBox11.BackColor = Color.Transparent;
             pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
-            pictureBox11.Location = new Point(99, 180);
+            pictureBox11.Location = new Point(129, 180);
             pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(100, 50);
+            pictureBox11.Size = new Size(55, 50);
             pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox11.TabIndex = 21;
             pictureBox11.TabStop = false;
@@ -181,9 +182,9 @@
             // 
             pictureBox3.BackColor = Color.Transparent;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(87, 40);
+            pictureBox3.Location = new Point(110, 40);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(100, 50);
+            pictureBox3.Size = new Size(56, 50);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 23;
             pictureBox3.TabStop = false;
@@ -194,7 +195,7 @@
             comboBox1.FlatStyle = FlatStyle.Popup;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Emiliano Martínez (Argentina)", "Hugo Lloris (Francia)", "Manuel Neuer (Alemania)", "Keylor Navas (Costa Rica)", "Alisson Becker (Brasil)" });
-            comboBox1.Location = new Point(606, 220);
+            comboBox1.Location = new Point(645, 238);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(92, 23);
             comboBox1.TabIndex = 24;
@@ -310,7 +311,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(710, 450);
+            ClientSize = new Size(759, 478);
             Controls.Add(button1);
             Controls.Add(comboBox11);
             Controls.Add(comboBox10);

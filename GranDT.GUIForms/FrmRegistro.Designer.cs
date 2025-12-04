@@ -261,11 +261,11 @@ namespace GRAN_DT_MICA__MADY_
             // 
             // btnAceptar
             // 
-            btnAceptar.BackColor = Color.RoyalBlue;
+            btnAceptar.BackColor = Color.SteelBlue;
             btnAceptar.BackgroundImageLayout = ImageLayout.None;
             btnAceptar.Font = new Font("Sitka Small", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAceptar.ForeColor = SystemColors.ControlLightLight;
-            btnAceptar.Location = new Point(331, 387);
+            btnAceptar.Location = new Point(319, 387);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(130, 41);
             btnAceptar.TabIndex = 30;

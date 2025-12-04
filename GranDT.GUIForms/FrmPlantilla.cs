@@ -50,4 +50,9 @@ public partial class FrmPlantilla : Form
         menu.Show();
         this.Hide();
     }
+
+    private void pictureBox8_Click(object sender, EventArgs e)
+    {
+
+    }
 }
