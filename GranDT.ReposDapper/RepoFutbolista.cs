@@ -165,4 +165,26 @@ public class RepoFutbolista : Repo, IRepoFutbolista
                     cotizacion, creado_por, idFutbolista);
     }
 
+    public IEnumerable<Futbolista> BuscarPorNombreCompleto(string nombre)
+    {
+        using var conexion = Conexion.CrearConexion();
+
+        var parametros = new DynamicParameters();
+        parametros.Add("@p_Nombre", nombre);
+
+        try
+        {
+            return conexion.Query<Futbolista>(
+            "buscar_futbolistas",
+            parametros,
+            commandType: CommandType.StoredProcedure
+            );
+        }
+    catch (Exception ex)
+    {
+        throw new Exception("Error al buscar futbolistas por nombre completo.", ex);
+    }
+    }
+
+
 }

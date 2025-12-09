@@ -84,3 +84,25 @@ BEGIN
    INSERT INTO Administrador value (idUsuario);
 
 END $$
+
+-- Buscar futbolista por apellido y nombre 
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS buscar_futbolistas $$
+CREATE PROCEDURE buscar_futbolistas(
+    IN p_Nombre VARCHAR(45),
+    IN p_Apellido VARCHAR(45)
+)
+BEGIN
+        SELECT 
+        f.IdFutbolista,
+        f.Nombre,
+        f.Apodo,
+        f.Nacimiento,
+        f.IdEquipo,
+        f.IdTipoDeJugador
+    FROM Futbolista f
+    WHERE CONCAT(f.Nombre, ' ', f.Apellido) LIKE CONCAT('%', p_NombreCompleto, '%')
+       OR p_NombreCompleto = '';
+END $$

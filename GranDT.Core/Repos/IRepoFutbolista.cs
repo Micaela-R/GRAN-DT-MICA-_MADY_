@@ -8,5 +8,6 @@ public interface IRepoFutbolista
     IEnumerable<Futbolista> ObtenerFutbolistas();
     IEnumerable<TipoDeJugador> ObtenerTipoJugadores();
     Futbolista? ObtenerFutbolista(int idFutbolista);
+    IEnumerable<Futbolista> BuscarPorNombreCompleto(string nombre);
     
 }
