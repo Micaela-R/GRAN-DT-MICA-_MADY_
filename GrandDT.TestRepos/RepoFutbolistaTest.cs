@@ -161,5 +161,18 @@ public class RepoFutbolistaTest : RepoTest
         });
     }
 
+    [Fact]
+
+    public void Buscar_PorNombreCompleto()
+    {
+
+        string nombre = "Lionel Messi"; 
+
+        var resultado = repo.BuscarPorNombreCompleto(nombre);
+
+        Assert.NotNull(resultado);   // Siempre debe devolver IEnumerable, nunca null
+        Assert.IsAssignableFrom<IEnumerable<Futbolista>>(resultado);
+    }
+
 
 }
