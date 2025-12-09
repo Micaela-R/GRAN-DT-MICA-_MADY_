@@ -55,4 +55,9 @@ public partial class FrmRegistro : Form
         menu.Show();
         this.Hide();
     }
+
+    private void FrmRegistro_Load(object sender, EventArgs e)
+    {
+
+    }
 }

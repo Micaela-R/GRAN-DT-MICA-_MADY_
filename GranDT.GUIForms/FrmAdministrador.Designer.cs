@@ -66,11 +66,11 @@
             button1.BackColor = Color.SteelBlue;
             button1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(33, 185);
+            button1.Location = new Point(290, 185);
             button1.Name = "button1";
             button1.Size = new Size(163, 57);
             button1.TabIndex = 2;
-            button1.Text = "LISTA DE FUTBOLISTAS";
+            button1.Text = "CREAR EQUIPO";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -79,7 +79,7 @@
             button2.BackColor = Color.SteelBlue;
             button2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(260, 185);
+            button2.Location = new Point(505, 185);
             button2.Name = "button2";
             button2.Size = new Size(163, 57);
             button2.TabIndex = 3;
@@ -91,11 +91,11 @@
             button3.BackColor = Color.SteelBlue;
             button3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(484, 185);
+            button3.Location = new Point(68, 185);
             button3.Name = "button3";
             button3.Size = new Size(163, 57);
             button3.TabIndex = 4;
-            button3.Text = "INFORMACION DE LOS EQUIPOS";
+            button3.Text = "CREAR FUTBOLISTAS";
             button3.UseVisualStyleBackColor = false;
             // 
             // FrmAdministrador

@@ -39,11 +39,12 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(222, 32);
+            label1.Location = new Point(232, 32);
             label1.Name = "label1";
-            label1.Size = new Size(297, 37);
+            label1.Size = new Size(273, 37);
             label1.TabIndex = 0;
-            label1.Text = "LISTA DE FUTBOLISTAS";
+            label1.Text = "CREAR FUTBOLISTAS";
+            label1.Click += label1_Click;
             // 
             // comboBox1
             // 
@@ -53,7 +54,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(137, 23);
             comboBox1.TabIndex = 1;
-          
             // 
             // FrmListaFutbolistas
             // 

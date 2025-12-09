@@ -30,5 +30,10 @@ namespace GRAN_DT_MICA__MADY_
         {
 
         }
+
+        private void FrmBienvenida_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

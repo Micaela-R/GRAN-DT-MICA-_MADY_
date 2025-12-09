@@ -100,6 +100,7 @@
             Controls.Add(label1);
             Name = "FrmBienvenida";
             Text = "¡Bienvenidos!";
+            Load += FrmBienvenida_Load;
             ResumeLayout(false);
             PerformLayout();
         }

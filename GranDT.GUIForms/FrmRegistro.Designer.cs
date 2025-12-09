@@ -335,6 +335,7 @@ namespace GRAN_DT_MICA__MADY_
             Controls.Add(pictureBox3);
             Name = "FrmRegistro";
             Text = "Registro";
+            Load += FrmRegistro_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

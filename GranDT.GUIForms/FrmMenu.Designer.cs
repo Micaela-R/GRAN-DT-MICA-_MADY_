@@ -49,24 +49,26 @@
             // 
             // button3
             // 
+            button3.BackColor = Color.SteelBlue;
             button3.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button3.Location = new Point(463, 188);
             button3.Name = "button3";
             button3.Size = new Size(108, 44);
             button3.TabIndex = 3;
             button3.Text = "Plantillas";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.SteelBlue;
             button2.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.Location = new Point(221, 188);
             button2.Name = "button2";
             button2.Size = new Size(107, 44);
             button2.TabIndex = 2;
             button2.Text = "Equipos";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // FrmMenu
