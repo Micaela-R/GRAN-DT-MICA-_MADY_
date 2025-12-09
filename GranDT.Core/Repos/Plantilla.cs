@@ -1,4 +1,4 @@
-using GranDT.Core; // asegúrate de tener esto
+using GranDT.Core; 
 
 namespace GranDT.Core
 {
@@ -8,15 +8,15 @@ namespace GranDT.Core
         public string Nombre { get; set; } = string.Empty;
         public int IdUsuario { get; set; }
 
-        public virtual ICollection<FutbolistaPlantilla> FutbolistasPlantilla { get; set; } = new List<FutbolistaPlantilla>();
+        public virtual ICollection<FutbolistaPlantilla> FutbolistasPlantillas { get; set; } = new List<FutbolistaPlantilla>();
 
         public void AgregarFutbolista(int idFutbolista)
         {
-            FutbolistasPlantilla.Add(new FutbolistaPlantilla
+            FutbolistasPlantillas.Add(new FutbolistaPlantillas)
             {
                 IdFutbolista = idFutbolista,
                 IdPlantilla = IdPlantilla
-            });
+            };
         }
     }
 }

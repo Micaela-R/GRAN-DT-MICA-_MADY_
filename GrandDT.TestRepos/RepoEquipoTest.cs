@@ -8,5 +8,5 @@ namespace GrandDT.TestRepos;
 
 public class RepoEquipoTest : RepoTest
 {
-    IRepoEquipo
+    IRepoEquipo 
 }
